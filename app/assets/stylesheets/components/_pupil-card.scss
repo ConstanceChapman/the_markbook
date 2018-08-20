@@ -1,0 +1,33 @@
+.pupil-card {
+  margin-top: 30px;
+  background-color: white;
+  border-radius: 2px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  padding: 20px;
+  p {
+    margin: 0;
+  }
+  .avatar {
+    margin: 10px;
+  }
+  #avatarbuttons {
+    font-size: 28px;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  #score-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  #score {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: $light-gray;
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+  }
+}

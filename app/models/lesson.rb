@@ -6,12 +6,11 @@ class Lesson < ApplicationRecord
   after_save :make_pupil_scores
 
   def make_pupil_scores
-    self.pupils.each do |pupil|
-      # next if Score.where(lesson: self, set_pupil: pupil.set_pupil)
+    self.teaching_set.set_pupils.each do |set_pupil|
       Score.create(
         lesson: self,
-        set_pupil: pupil.set_pupil
-        ) unless Score.where(lesson: self, set_pupil: pupil.set_pupil)
+        set_pupil: set_pupil
+        ) unless Score.where(lesson: self, set_pupil: set_pupil).any?
     end
   end
 end

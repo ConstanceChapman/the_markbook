@@ -1,0 +1,24 @@
+.btn-markbook {
+  background-color: $green;
+  border-radius: 50px;
+  color: $white;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100px;
+  transition: background 0.3s ease;
+  &:hover {
+    background-color: $light-green;
+    text-decoration: none;
+    color: $white;
+  }
+}
+
+.btn-card {
+  font-size: 32px;
+  color: $green;
+  &:hover {
+    color: $light-green;
+  }
+}

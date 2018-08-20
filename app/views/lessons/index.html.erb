@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Lessons for <%= @teaching_set.year_group %> <%= @teaching_set.subject %></h1>
+  <ul>
+    <% @lessons.each do |lesson| %>
+      <%= link_to lesson_path(lesson) do %>
+      <li><%= lesson.start_time.strftime('%A, %d %b %Y %l:%M %p') %></li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
