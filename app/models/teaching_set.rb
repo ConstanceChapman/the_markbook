@@ -6,6 +6,8 @@ class TeachingSet < ApplicationRecord
   has_many :pupils, through: :set_pupils
   has_many :tasks
   has_many :marks, through: :tasks
+  validates :subject, presence: true
+  validates :year_group, presence: true
+  validates :start_date, presence: true
+  validates :end_date, presence: true
 end
-
-# teaching_set = TeachingSet.create! user:user, subject:"Latin", year_group:"Year 7", start_date:Date.new(2017,9,1), end_date:Date.new(2018,8,31)

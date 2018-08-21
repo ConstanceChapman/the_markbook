@@ -7,4 +7,6 @@ class User < ApplicationRecord
           :rememberable,
           :validatable
   has_many :teaching_sets
+  validates :first_name, presence: true
+  validates :last_name, presence: true
 end
