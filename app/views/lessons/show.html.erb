@@ -3,7 +3,7 @@
     <% @lesson.scores.sort_by {|score| score.set_pupil.pupil.last_name }.each do |score| %>
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
       <div class="pupil-card text-center">
-        <p><%= score.set_pupil.pupil.first_name %> <%= score.set_pupil.pupil.last_name %></p>
+        <h4><%= score.set_pupil.pupil.first_name %> <%= score.set_pupil.pupil.last_name %></h4>
         <div id="avatarbuttons">
 
           <%= simple_form_for score do |f| %>

@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-xs-2 markbook-column pupils-column">
+    <% @teaching_set.set_pupils.sort_by { |set_pupil| set_pupil.pupil.last_name }.each do |set_pupil| %>
+      <p id="markbook-pupil"><%= set_pupil.pupil.first_name %> <%= set_pupil.pupil.last_name %></p>
+    <% end %>
+  </div>
+  <% @result_hash.each do |task, marks| %>
+    <div class="col-xs-2 text-center markbook-column">
+      <h5><%= task.title %>: <%= task.max_mark %></h5>
+      <% marks.each do |mark| %>
+        <%= simple_form_for mark, html: {class: "form-inline mark-area"} do |f| %>
+          <%= f.input :raw_mark, label: false %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="col-xs-2 text-center markbook-column">
+    <%= simple_form_for [@teaching_set, @task], html: {class: "form-inline mark-area"} do |f| %>
+      <%= f.input :title, label: false, placeholder: "new task title" %>
+      <%= f.input :max_mark, label: false, placeholder: "max mark" %>
+      <%= f.button :submit, class: "btn-markbook" %>
+    <% end %>
+  </div>
+</div>
+
