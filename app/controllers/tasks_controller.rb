@@ -17,6 +17,9 @@ class TasksController < ApplicationController
   end
 
   def update
+    @task = Task.find(params[:id])
+    @task.update(task_params)
+    redirect_to teaching_set_tasks_path(@task.teaching_set)
   end
 
   private
