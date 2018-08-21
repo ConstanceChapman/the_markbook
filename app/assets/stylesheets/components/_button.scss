@@ -1,6 +1,6 @@
 .btn-markbook {
   background-color: $green;
-  border-radius: 50px;
+  border-radius: 3px;
   color: $white;
   padding: 5px 10px;
   display: flex;
@@ -12,6 +12,14 @@
     background-color: $light-green;
     text-decoration: none;
     color: $white;
+  }
+}
+
+.btn-pencil {
+  margin-left: 5px;
+  color: $green;
+  &:hover {
+    color: $light-green;
   }
 }
 

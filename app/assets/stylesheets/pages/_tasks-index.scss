@@ -1,0 +1,35 @@
+.markbook-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+#markbook-pupil {
+  margin-bottom: 28px;
+}
+
+.pupils-column {
+  margin-top: 80px;
+  text-align: right;
+  width: 200px;
+  padding: 0 10px;
+}
+
+.markbook-column {
+  min-width: 200px;
+}
+
+.marks-index {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  overflow: scroll;
+}
+
+#date {
+  font-size: 14px;
+}
+
+.new-task-form {
+  padding: 10px;
+}
