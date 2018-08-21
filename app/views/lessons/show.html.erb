@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <% @lesson.scores.each do |score| %>
+    <% @lesson.scores.sort_by {|score| score.set_pupil.pupil.last_name }.each do |score| %>
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
       <div class="pupil-card text-center">
         <p><%= score.set_pupil.pupil.first_name %> <%= score.set_pupil.pupil.last_name %></p>
@@ -25,6 +25,12 @@
         </div>
         <div id="score-container">
           <p id="score"><%= score.value %></p>
+        </div>
+        <div id="comment-container">
+          <%= simple_form_for score do |f| %>
+            <%= f.input :comment, label: false, class: "form-control", placeholder: "Optional comment" %>
+            <%= f.button :submit, value: "Save Comment", class: "btn-markbook" %>
+          <% end %>
         </div>
       </div>
     </div>

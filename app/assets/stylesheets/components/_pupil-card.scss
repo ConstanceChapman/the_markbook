@@ -26,8 +26,11 @@
     align-items: center;
     justify-content: space-around;
     background-color: $light-gray;
-    height: 26px;
-    width: 26px;
+    height: 30px;
+    width: 30px;
     border-radius: 50%;
+  }
+  #comment-container {
+    margin-top: 20px;
   }
 }
