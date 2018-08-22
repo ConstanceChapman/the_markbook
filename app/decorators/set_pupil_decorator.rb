@@ -1,4 +1,4 @@
-class SetPupilDecorator < Drape::Decorator
+class SetPupilDecorator < Draper::Decorator
   delegate_all
 
   def average_score(report_cycle)
