@@ -16,7 +16,7 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
-gem 'drape', '~> 1.0.0.beta1'
+gem 'draper'
 gem 'annotate'
 
 group :development do
