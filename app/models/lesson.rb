@@ -2,7 +2,6 @@ class Lesson < ApplicationRecord
   belongs_to :teaching_set
   has_many :pupils, through: :teaching_set
   has_many :scores
-  validates :scores, uniqueness: { scope: :set_pupil}
   after_save :make_pupil_scores
 
   def make_pupil_scores
@@ -10,7 +9,7 @@ class Lesson < ApplicationRecord
       Score.create(
         lesson: self,
         set_pupil: set_pupil
-        ) unless Score.where(lesson: self, set_pupil: set_pupil).any?
+        )
     end
   end
 end
