@@ -1,4 +1,4 @@
-<div class="modal fade" id="<%= "view-report#{report.report_cycle.id}" %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="<%= "view-report-#{report.report_cycle.id}-#{report.set_pupil.id}" %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -7,6 +7,8 @@
         </button>
       </div>
       <div class="modal-body">
+        <% pupil = report.set_pupil %>
+        <p>Average score: <%= pupil.average_score %></p>
         <%= simple_form_for report do |f| %>
           <%= f.input :content %>
           <%= f.button :submit, class: "btn-markbook" %>

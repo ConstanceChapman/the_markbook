@@ -16,6 +16,8 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'drape', '~> 1.0.0.beta1'
+gem 'annotate'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
