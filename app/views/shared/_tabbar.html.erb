@@ -1,15 +1,12 @@
 <div class="tab-bar">
   <% teaching_set = TeachingSet.find(params[:teaching_set_id]) %>
-  <h3><%= teaching_set.year_group %> <%= teaching_set.subject %></h3>
+  <h3><%= teaching_set.year_group %>, <%= teaching_set.subject %></h3>
   <div class="tabs">
-    <a class="tab active" href="#">
-      <p>Lessons</p>
-    </a>
-    <a class="tab" href="#">
-      <p>Marks</p>
-    </a>
-    <a class="tab" href="#">
-      <p>Reports</p>
-    </a>
+    <%= link_to "Lessons", teaching_set_lessons_path(teaching_set), class: "tab #{'active' if @nav == 'lessons'}" %>
+    <%= link_to "Marks", teaching_set_tasks_path(teaching_set), class: "tab #{'active' if @nav == 'marks'}" %>
+    <%= link_to "Reports", teaching_set_report_cycles_path(teaching_set), class: "tab #{'active' if @nav == 'reports'}" %>
   </div>
 </div>
+
+
+

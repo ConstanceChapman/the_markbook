@@ -1,6 +1,8 @@
 <div class="navbar-wagon">
   <!-- Logo -->
-  <%= image_tag "logo.png", alt: "logo", id: "navbar-logo" %>
+  <%= link_to teaching_sets_path do  %>
+    <%= image_tag "logo.png", alt: "logo", id: "navbar-logo" %>
+  <% end %>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
@@ -11,14 +13,15 @@
           <% current_user.teaching_sets.each do |teaching_set| %>
             <li>
               <%= link_to teaching_set_lessons_path(teaching_set) do %>
-                <%= teaching_set.year_group %> <%= teaching_set.subject %>
+                <%= teaching_set.year_group %>, <%= teaching_set.subject %>
               <% end %>
             </li>
           <% end %>
         </ul>
       </div>
     </div>
-    <%= link_to "Logout", destroy_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "Logout", destroy_user_session_path,
+    method: :delete, class: "navbar-wagon-item navbar-wagon-link" %>
     <%= image_tag "avatar.png", class: "avatar" %>
   </div>
 

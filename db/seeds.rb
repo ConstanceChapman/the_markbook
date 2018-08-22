@@ -39,7 +39,7 @@ puts "Seeding teaching-sets..."
 
 lewagon = TeachingSet.new(
   subject: "Le Wagon",
-  year_group: "164",
+  year_group: "Batch 164",
   start_date: "2018-07-02",
   end_date: "2018-08-31",
   user: user1
@@ -48,7 +48,7 @@ lewagon.save
 
 potions5 = TeachingSet.new(
   subject: "Potions",
-  year_group: "5",
+  year_group: "Year 5",
   start_date: "2018-01-08",
   end_date: "2018-12-21",
   user: user2
@@ -57,7 +57,7 @@ potions5.save
 
 defense5 = TeachingSet.new(
   subject: "Defense Against The Dark Arts",
-  year_group: "5",
+  year_group: "Year 5",
   start_date: "2018-01-08",
   end_date: "2018-12-21",
   user: user2
@@ -351,7 +351,7 @@ vincent.save
 
 justin = Pupil.new(
   first_name: "Justin",
-  last_name: "Finch-Fletchley"
+  last_name: "Fletchley"
   )
 justin.save
 
