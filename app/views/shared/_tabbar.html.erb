@@ -1,0 +1,15 @@
+<div class="tab-bar">
+  <% teaching_set = TeachingSet.find(params[:teaching_set_id]) %>
+  <h3><%= teaching_set.year_group %> <%= teaching_set.subject %></h3>
+  <div class="tabs">
+    <a class="tab active" href="#">
+      <p>Lessons</p>
+    </a>
+    <a class="tab" href="#">
+      <p>Marks</p>
+    </a>
+    <a class="tab" href="#">
+      <p>Reports</p>
+    </a>
+  </div>
+</div>

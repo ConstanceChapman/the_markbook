@@ -8,7 +8,7 @@ class ScoresController < ApplicationController
     elsif score_params[:comment]
       @score.update(score_params)
     end
-    redirect_to lesson_path(@score.lesson)
+    redirect_to teaching_set_lesson_path(@score.lesson.teaching_set_id, @score.lesson.id)
   end
 
   private
