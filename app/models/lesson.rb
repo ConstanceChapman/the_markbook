@@ -14,7 +14,9 @@ class Lesson < ApplicationRecord
   belongs_to :teaching_set
   has_many :pupils, through: :teaching_set
   has_many :scores, dependent: :destroy
-  after_save :make_pupil_scores
+  after_create_commit :make_pupil_scores
+  after_update_commit :make_pupil_scores
+  # after_save :make_pupil_scores
 
   def make_pupil_scores
     self.teaching_set.set_pupils.each do |set_pupil|
