@@ -22,6 +22,11 @@ class TasksController < ApplicationController
     redirect_to teaching_set_tasks_path(@task.teaching_set)
   end
 
+  def destroy
+    @task = Task.find(params[:id])
+    @task.destroy
+  end
+
   private
 
   def task_params
