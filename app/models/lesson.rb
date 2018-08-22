@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: lessons
+#
+#  id              :bigint(8)        not null, primary key
+#  start_time      :datetime
+#  end_time        :datetime
+#  teaching_set_id :bigint(8)
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 class Lesson < ApplicationRecord
   belongs_to :teaching_set
   has_many :pupils, through: :teaching_set
