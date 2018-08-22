@@ -1,7 +1,7 @@
 class Lesson < ApplicationRecord
   belongs_to :teaching_set
   has_many :pupils, through: :teaching_set
-  has_many :scores
+  has_many :scores, dependent: :destroy
   after_save :make_pupil_scores
 
   def make_pupil_scores

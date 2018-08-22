@@ -1,6 +1,6 @@
 class Task < ApplicationRecord
   belongs_to :teaching_set
-  has_many :marks
+  has_many :marks, dependent: :destroy
   validates :title, presence: true, uniqueness: { scope: :teaching_set }
 
   after_save :make_pupil_marks

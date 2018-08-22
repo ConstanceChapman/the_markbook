@@ -1,6 +1,6 @@
 class ReportCycle < ApplicationRecord
   belongs_to :teaching_set
-  has_many :reports
+  has_many :reports, dependent: :destroy
   after_save :make_pupil_reports
 
   def make_pupil_reports
