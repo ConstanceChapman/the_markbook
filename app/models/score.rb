@@ -16,4 +16,10 @@ class Score < ApplicationRecord
   belongs_to :lesson
   validates :value, inclusion: { in: (-3..3) }
   validates :set_pupil, uniqueness: {scope: :lesson}
+
+  def return_report_cycle
+    start = lesson.start_time
+    finish = lesson.end_time
+    ReportCycle.where("start_date <= ? AND end_date >= ?", start, finish).first
+  end
 end
