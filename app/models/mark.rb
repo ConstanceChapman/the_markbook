@@ -15,4 +15,13 @@ class Mark < ApplicationRecord
   belongs_to :task
   belongs_to :set_pupil
   validates :set_pupil, uniqueness: { scope: :task }
+
+  def return_report_cycle
+    date = task.created_at
+    ReportCycle.where("start_date <= ? AND end_date >= ?", date, date).first
+  end
+
+  def percentage
+    ((raw_mark) / (task.max_mark).to_f * 100).round(1)
+  end
 end

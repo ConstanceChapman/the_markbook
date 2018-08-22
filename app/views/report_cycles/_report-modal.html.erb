@@ -8,7 +8,17 @@
       </div>
       <div class="modal-body">
         <% pupil = report.set_pupil.decorate %>
-        <p>Average score: <%= pupil.average_score(report.report_cycle) %></p>
+        <p>Average mark: <%= pupil.average_mark(report.report_cycle) %>%</p>
+        <p>Top mark: <%= pupil.top_mark(report.report_cycle) %></p>
+        <p>Bottom mark: <%= pupil.bottom_mark(report.report_cycle) %></p>
+        <p>Average behaviour: <%= pupil.average_score(report.report_cycle) %></p>
+        <% if pupil.behaviour_comments(report.report_cycle).length > 0 %>
+          <p><strong>Behaviour comments:</strong><br>
+            <% pupil.behaviour_comments(report.report_cycle).each do |comment| %>
+              <%= comment %><br>
+            <% end %>
+          </p>
+        <% end %>
         <%= simple_form_for report do |f| %>
           <%= f.input :content %>
           <%= f.button :submit, class: "btn-markbook" %>
