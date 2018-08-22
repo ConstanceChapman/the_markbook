@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Lessons for <%= @teaching_set.year_group %> <%= @teaching_set.subject %></h1>
+  <h1>Lessons for <%= @teaching_set.year_group %>, <%= @teaching_set.subject %></h1>
   <ul>
     <% @lessons.each do |lesson| %>
       <%= link_to teaching_set_lesson_path(lesson.teaching_set_id, lesson.id) do %>

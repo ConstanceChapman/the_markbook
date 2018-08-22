@@ -32,4 +32,8 @@ class TasksController < ApplicationController
   def task_params
     params.require(:task).permit(:title, :max_mark)
   end
+
+  def nav_status
+    @nav = "marks"
+  end
 end

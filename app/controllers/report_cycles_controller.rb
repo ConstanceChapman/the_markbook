@@ -5,4 +5,10 @@ class ReportCyclesController < ApplicationController
     # @set_pupils = SetPupilDecorator.decorate_collection(teaching_set.set_pupils)
     @set_pupils = teaching_set.set_pupils
   end
+
+  private
+
+  def nav_status
+    @nav = "reports"
+  end
 end

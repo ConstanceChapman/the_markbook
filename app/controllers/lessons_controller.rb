@@ -7,4 +7,8 @@ class LessonsController < ApplicationController
   def show
     @lesson = Lesson.find(params[:id])
   end
+
+  def nav_status
+    @nav = "lessons"
+  end
 end
