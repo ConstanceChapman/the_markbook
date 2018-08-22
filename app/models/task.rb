@@ -10,7 +10,7 @@ class Task < ApplicationRecord
       Mark.create(
         task: self,
         set_pupil: set_pupil
-        ) unless Mark.where(task: self, set_pupil: set_pupil).any?
+        )
     end
   end
 end
