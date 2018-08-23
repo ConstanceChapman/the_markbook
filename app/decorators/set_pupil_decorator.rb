@@ -4,6 +4,8 @@ class SetPupilDecorator < Draper::Decorator
   def get_scores(report_cycle)
     report_cycle_scores = []
     object.scores.each do |score|
+      # puts score.value
+      # puts "#{score.return_report_cycle.name} is equal to #{report_cycle.name}"
       if score.return_report_cycle == report_cycle
         report_cycle_scores << score
       end

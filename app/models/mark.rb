@@ -18,7 +18,7 @@ class Mark < ApplicationRecord
 
   def return_report_cycle
     date = task.created_at
-    ReportCycle.where("start_date <= ? AND end_date >= ?", date, date).first
+    ReportCycle.where("start_date <= ? AND end_date >= ? AND teaching_set_id = ?", date, date, task.teaching_set_id).first
   end
 
   def percentage
