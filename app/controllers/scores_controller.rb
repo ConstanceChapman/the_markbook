@@ -8,7 +8,10 @@ class ScoresController < ApplicationController
     elsif score_params[:comment]
       @score.update(score_params)
     end
-    redirect_to teaching_set_lesson_path(@score.lesson.teaching_set_id, @score.lesson.id)
+    respond_to do |format|
+        format.html {redirect_to teaching_set_lesson_path(@score.lesson.teaching_set_id, @score.lesson.id)}
+        format.js  # <-- will render `app/views/scores/update.js.erb`
+      end
   end
 
   private

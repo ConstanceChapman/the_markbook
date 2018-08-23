@@ -1,0 +1,4 @@
+<%= simple_form_for(score, remote: true) do |f| %>
+  <%= f.input :comment, label: false, class: "form-control", placeholder: "Optional comment" %>
+  <%= f.button :submit, value: "Save Comment", class: "btn-markbook" %>
+<% end %>
