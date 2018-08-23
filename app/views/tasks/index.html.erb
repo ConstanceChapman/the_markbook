@@ -16,9 +16,9 @@
         </h5>
         <p id="date"><%= task.created_at.strftime('%d.%m.%y') %></p>
         <% marks.each do |mark| %>
-          <%= simple_form_for mark, html: {class: "form-inline mark-area"} do |f| %>
-            <%= f.input :raw_mark, label: false %>
-          <% end %>
+          <div class="mark_#{mark.id}">
+            <%= render 'tasks/mark_form', mark: mark %>
+          </div>
         <% end %>
       </div>
     <% end %>
