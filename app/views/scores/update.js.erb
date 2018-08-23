@@ -15,10 +15,35 @@ function refreshCommentForm(innerHTML) {
 
 function updateScore(){
   var score = document.getElementById("score_" + <%= @score.id %>);
-  score.innerText = <%= @score.value %>;
+  value = <%= @score.value %>
+  if (value >= -3 && value <= 3 ) {
+    return score.innerText = value;
+  } else {
+    return score.innerText
+  }
+}
+
+function checkButtons(){
+  var score = parseInt(document.getElementById("score_" + <%= @score.id %>).innerText);
+  var minus = document.getElementById("minus_" + <%= @score.id %>);
+  var plus = document.getElementById("plus_" + <%= @score.id %>);
+  if (score === -3) {
+    minus.disabled = true;
+    minus.classList.add("disabled")
+  } else if (score === 3) {
+    plus.disabled = true;
+    plus.classList.add("disabled")
+  } else {
+    minus.disabled = false;
+    minus.classList.remove("disabled")
+    plus.disabled = false;
+    plus.classList.remove("disabled")
+  }
 }
 
 refreshPlusForm('<%= j render "lessons/plus_form", score: @score %>');
 refreshMinusForm('<%= j render "lessons/minus_form", score: @score %>');
 refreshCommentForm('<%= j render "lessons/comment_form", score: @score %>');
-updateScore()
+updateScore();
+checkButtons();
+

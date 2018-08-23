@@ -12,8 +12,15 @@ class TasksController < ApplicationController
     @teaching_set = TeachingSet.find(params[:teaching_set_id])
     @task = Task.new(task_params)
     @task.teaching_set = @teaching_set
-    @task.save
-    redirect_to teaching_set_tasks_path(@teaching_set)
+    @result_hash = {}
+    @teaching_set.tasks.each do |task|
+      @result_hash[task] = task.marks.sort_by { |mark| mark.set_pupil.pupil.last_name }
+    end
+    if @task.save
+      redirect_to teaching_set_tasks_path(@teaching_set)
+    else
+      render 'tasks/index'
+    end
   end
 
   def update

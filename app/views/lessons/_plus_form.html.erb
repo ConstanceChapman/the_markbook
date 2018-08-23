@@ -1,6 +1,6 @@
 <%= simple_form_for(score, remote: true) do |f| %>
   <input name="score[increment]", type="hidden", value="<%= "#{score.value + 1}" %>">
-  <%= button_tag type: "submit", class: "btn btn-card" do %>
+  <%= button_tag type: "submit", class: "btn btn-card", id: "plus_#{score.id}" do %>
     <i class="fas fa-plus"></i>
   <% end %>
 <% end %>
