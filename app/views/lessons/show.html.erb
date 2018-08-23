@@ -5,15 +5,15 @@
       <div class="pupil-card text-center">
         <h4><%= score.set_pupil.pupil.first_name %> <%= score.set_pupil.pupil.last_name %></h4>
         <div id="avatarbuttons">
-          <div id=<%= "plus_score_form_score_#{score.id}" %>>
-            <%= render 'lessons/plus_form', score: score %>
+          <div id=<%= "minus_score_form_score_#{score.id}" %>>
+            <%= render 'lessons/minus_form', score: score %>
           </div>
 
           <%= image_tag "avatar.png", class: "avatar" %>
 
-        <div id=<%= "minus_score_form_score_#{score.id}" %>>
-          <%= render 'lessons/minus_form', score: score %>
-        </div>
+          <div id=<%= "plus_score_form_score_#{score.id}" %>>
+            <%= render 'lessons/plus_form', score: score %>
+          </div>
 
         </div>
         <div id="score-container">
