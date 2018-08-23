@@ -22,7 +22,7 @@
     </div>
     <%= link_to "Logout", destroy_user_session_path,
     method: :delete, class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= image_tag "avatar.png", class: "avatar" %>
+    <%= image_tag "#{current_user.photo}", class: "avatar" %>
   </div>
 
   <!-- Dropdown appearing on mobile only -->

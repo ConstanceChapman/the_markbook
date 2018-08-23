@@ -22,7 +22,8 @@ user1 = User.new(
   email: "connie@gmail.com",
   password: "123456",
   first_name: "Constance",
-  last_name: "Chapman"
+  last_name: "Chapman",
+  photo: "teachers/connie.jpeg"
   )
 user1.save!
 
@@ -30,7 +31,9 @@ user2 = User.new(
   email: "snape@gmail.com",
   password: "123456",
   first_name: "Severus",
-  last_name: "Snape"
+  last_name: "Snape",
+  photo: "teachers/snape.jpg"
+
   )
 user2.save!
 
@@ -77,31 +80,37 @@ puts "Seeding pupils..."
 
 saskia = Pupil.new(
   first_name: "Saskia",
-  last_name: "Menke"
+  last_name: "Menke",
+  photo: "le-wagon/saskia.jpeg"
   )
 saskia.save!
 
 amanda = Pupil.new(
   first_name: "Amanda",
-  last_name: "Schjørmann"
+  last_name: "Schjørmann",
+  photo: "le-wagon/amanda.jpg"
   )
 amanda.save!
 
 charles = Pupil.new(
   first_name: "Charles",
-  last_name: "Sumner"
+  last_name: "Sumner",
+  photo: "le-wagon/charles.jpeg"
+
   )
 charles.save!
 
 thiago = Pupil.new(
   first_name: "Thiago",
-  last_name: "Oliva"
+  last_name: "Oliva",
+  photo: "le-wagon/thiago.jpeg"
   )
 thiago.save!
 
 nick = Pupil.new(
   first_name: "Nicolas",
-  last_name: "Feer"
+  last_name: "Feer",
+  photo: "le-wagon/nicolas.jpeg"
   )
 nick.save!
 
@@ -110,133 +119,155 @@ nick.save!
 
 harry = Pupil.new(
   first_name: "Harry",
-  last_name: "Potter"
+  last_name: "Potter",
+  photo: "harry-potter/harry.jpg"
   )
 harry.save!
 
 ron = Pupil.new(
   first_name: "Ron",
-  last_name: "Weasley"
+  last_name: "Weasley",
+  photo: "harry-potter/ron.jpeg"
   )
 ron.save!
 
 hermione = Pupil.new(
   first_name: "Hermione",
-  last_name: "Granger"
+  last_name: "Granger",
+  photo: "harry-potter/hermione.jpg"
   )
 hermione.save!
 
 draco = Pupil.new(
   first_name: "Draco",
-  last_name: "Malfoy"
+  last_name: "Malfoy",
+  photo: "harry-potter/draco.jpg"
   )
 draco.save!
 
 neville = Pupil.new(
   first_name: "Neville",
-  last_name: "Longbottom"
+  last_name: "Longbottom",
+  photo: "harry-potter/neville.jpg"
   )
 neville.save!
 
 seamus = Pupil.new(
   first_name: "Seamus",
-  last_name: "Finnigan"
+  last_name: "Finnigan",
+  photo: "harry-potter/seamus.jpg"
   )
 seamus.save!
 
 luna = Pupil.new(
   first_name: "Luna",
-  last_name: "Lovegood"
+  last_name: "Lovegood",
+  photo: "harry-potter/luna.jpg"
   )
 luna.save!
 
 dean = Pupil.new(
   first_name: "Dean",
-  last_name: "Thomas"
+  last_name: "Thomas",
+  photo: "harry-potter/dean.jpg"
   )
 dean.save!
 
 susan = Pupil.new(
   first_name: "Susan",
-  last_name: "Bones"
+  last_name: "Bones",
+  photo: "harry-potter/susan.jpeg"
   )
 susan.save!
 
 terry = Pupil.new(
   first_name: "Terry",
-  last_name: "Boot"
+  last_name: "Boot",
+  photo: "harry-potter/terry.jpg"
   )
 terry.save!
 
 lavendar = Pupil.new(
   first_name: "Lavendar",
-  last_name: "Brown"
+  last_name: "Brown",
+  photo: "harry-potter/lavendar.jpg"
   )
 lavendar.save!
 
 millicent = Pupil.new(
   first_name: "Millicent",
-  last_name: "Bulstrode"
+  last_name: "Bulstrode",
+  photo: "harry-potter/millicent.jpg"
   )
 millicent.save!
 
 michael = Pupil.new(
   first_name: "Michael",
-  last_name: "Corner"
+  last_name: "Corner",
+  photo: "harry-potter/michael.jpg"
   )
 michael.save!
 
 vincent = Pupil.new(
   first_name: "Vincent",
-  last_name: "Crabbe"
+  last_name: "Crabbe",
+  photo: "harry-potter/vincent.jpg"
   )
 vincent.save!
 
 justin = Pupil.new(
   first_name: "Justin",
-  last_name: "Fletchley"
+  last_name: "Finch-Fletchley",
+  photo: "harry-potter/justin.png"
   )
 justin.save!
 
 anthony = Pupil.new(
   first_name: "Anthony",
-  last_name: "Goldstein"
+  last_name: "Goldstein",
+  photo: "harry-potter/anthony.jpg"
   )
 anthony.save!
 
 gregory = Pupil.new(
   first_name: "Gregory",
-  last_name: "Goyle"
+  last_name: "Goyle",
+  photo: "harry-potter/gregory.jpg"
   )
 gregory.save!
 
-ernie = Pupil.new(
-  first_name: "Ernie",
-  last_name: "Macmillan"
+cedric = Pupil.new(
+  first_name: "Cedric",
+  last_name: "Diggory",
+  photo: "harry-potter/cedric.png"
   )
-ernie.save!
+cedric.save!
 
 pansy = Pupil.new(
   first_name: "Pansy",
-  last_name: "Parkinson"
+  last_name: "Parkinson",
+  photo: "harry-potter/pansy.jpg"
   )
 pansy.save!
 
 padma = Pupil.new(
   first_name: "Padma",
-  last_name: "Patil"
+  last_name: "Patil",
+  photo: "harry-potter/padma.jpg"
   )
 padma.save!
 
 parvati = Pupil.new(
   first_name: "Parvati",
-  last_name: "Patil"
+  last_name: "Patil",
+  photo: "harry-potter/parvati.jpg"
   )
 parvati.save!
 
 blaise = Pupil.new(
   first_name: "Blaise",
-  last_name: "Zabini"
+  last_name: "Zabini",
+  photo: "harry-potter/blaise.png"
   )
 blaise.save!
 
@@ -415,11 +446,11 @@ gregory_defense5 = SetPupil.new(
   )
 gregory_defense5.save!
 
-ernie_defense5 = SetPupil.new(
+cedric_defense5 = SetPupil.new(
   teaching_set: defense5,
-  pupil: ernie
+  pupil: cedric
   )
-ernie_defense5.save!
+cedric_defense5.save!
 
 pansy_defense5 = SetPupil.new(
   teaching_set: defense5,

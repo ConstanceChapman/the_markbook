@@ -5,7 +5,7 @@
         <div class="pupil-card text-center">
           <h4><%= "#{set_pupil.pupil.first_name} #{set_pupil.pupil.last_name}" %></h4>
           <div id="avatar-report">
-            <%= image_tag "avatar.png", class: "avatar" %>
+            <%= image_tag "#{set_pupil.pupil.photo}", class: "avatar" %>
           </div>
           <div class="report-cycles-container">
             <% set_pupil.report_cycles.each do |report_cycle| %>
