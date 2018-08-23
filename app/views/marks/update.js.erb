@@ -1,0 +1,6 @@
+function refreshMark(innerHTML) {
+  const newMarkForm = document.getElementById("mark_" + <%= @mark.id %>);
+  newPlusForm.innerHTML = innerHTML;
+}
+
+refreshMark('<%= j render "tasks/mark_form", mark: @mark %>');
