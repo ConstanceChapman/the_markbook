@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :tasks, only: [:update, :destroy]
   resources :marks, only: [:create, :update]
   resources :reports, only: [:update]
+  resources :events, only: [:index], defaults: { format: :json }
 end
