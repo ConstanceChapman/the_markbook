@@ -20,6 +20,6 @@ class Score < ApplicationRecord
   def return_report_cycle
     start = lesson.start_time
     finish = lesson.end_time
-    ReportCycle.where("start_date <= ? AND end_date >= ?", start, finish).first
+    ReportCycle.where("start_date <= ? AND end_date >= ? AND teaching_set_id = ?", start, finish, lesson.teaching_set_id).first
   end
 end
