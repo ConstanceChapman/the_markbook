@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <% @set_pupils.each do |set_pupil| %>
+    <% @set_pupils.sort_by { |sp| sp.pupil.last_name }.each do |set_pupil| %>
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <div class="pupil-card text-center">
           <h4><%= "#{set_pupil.pupil.first_name} #{set_pupil.pupil.last_name}" %></h4>
