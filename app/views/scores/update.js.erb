@@ -1,0 +1,24 @@
+function refreshPlusForm(innerHTML) {
+  const newPlusForm = document.getElementById("plus_score_form_score_" + <%= @score.id %>);
+  newPlusForm.innerHTML = innerHTML;
+}
+
+function refreshMinusForm(innerHTML) {
+  const newMinusForm = document.getElementById("minus_score_form_score_" + <%= @score.id %>);
+  newMinusForm.innerHTML = innerHTML;
+}
+
+function refreshCommentForm(innerHTML) {
+  const newCommentForm = document.getElementById("comment-container_" + <%= @score.id %>);
+  newCommentForm.innerHTML = innerHTML;
+}
+
+function updateScore(){
+  var score = document.getElementById("score_" + <%= @score.id %>);
+  score.innerText = <%= @score.value %>;
+}
+
+refreshPlusForm('<%= j render "lessons/plus_form", score: @score %>');
+refreshMinusForm('<%= j render "lessons/minus_form", score: @score %>');
+refreshCommentForm('<%= j render "lessons/comment_form", score: @score %>');
+updateScore()

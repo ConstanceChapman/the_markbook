@@ -29,7 +29,7 @@
     align-items: center;
     justify-content: space-around;
   }
-  #score {
+  .score {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -38,7 +38,7 @@
     width: 30px;
     border-radius: 50%;
   }
-  #comment-container {
+  .comment-container {
     margin-top: 20px;
   }
 }

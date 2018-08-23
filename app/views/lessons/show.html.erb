@@ -5,32 +5,22 @@
       <div class="pupil-card text-center">
         <h4><%= score.set_pupil.pupil.first_name %> <%= score.set_pupil.pupil.last_name %></h4>
         <div id="avatarbuttons">
-
-          <%= simple_form_for score do |f| %>
-            <input name="score[increment]", type="hidden", value="<%= "#{score.value + 1}" %>">
-            <%= button_tag type: "submit", class: "btn btn-card" do %>
-              <i class="fas fa-plus"></i>
-            <% end %>
-          <% end %>
+          <div id=<%= "plus_score_form_score_#{score.id}" %>>
+            <%= render 'lessons/plus_form', score: score %>
+          </div>
 
           <%= image_tag "avatar.png", class: "avatar" %>
 
-          <%= simple_form_for score do |f| %>
-            <input name="score[decrement]", type="hidden", value="<%= "#{score.value - 1}" %>">
-            <%= button_tag type: "submit", class: "btn btn-card" do %>
-              <i class="fas fa-minus"></i>
-            <% end %>
-          <% end %>
+        <div id=<%= "minus_score_form_score_#{score.id}" %>>
+          <%= render 'lessons/minus_form', score: score %>
+        </div>
 
         </div>
         <div id="score-container">
-          <p id="score"><%= score.value %></p>
+          <p class="score" id=<%= "score_#{score.id}" %>><%= score.value %></p>
         </div>
-        <div id="comment-container">
-          <%= simple_form_for score do |f| %>
-            <%= f.input :comment, label: false, class: "form-control", placeholder: "Optional comment" %>
-            <%= f.button :submit, value: "Save Comment", class: "btn-markbook" %>
-          <% end %>
+        <div class="comment-container" id=<%= "comment-container_#{score.id}" %>>
+          <%= render 'lessons/comment_form', score: score %>
         </div>
       </div>
     </div>
