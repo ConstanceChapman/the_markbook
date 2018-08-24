@@ -23,7 +23,10 @@
       </div>
     <% end %>
   </div>
-  <div class="new-task-form text-center">
+  <div class="plus-circle">
+    <i class="fas fa-plus"></i>
+  </div>
+  <div class="new-task-form text-center hidden">
     <%= simple_form_for [@teaching_set, @task], html: {class: "form-inline mark-area"} do |f| %>
       <%= f.error_notification %>
       <%= f.input :title, label: false, placeholder: "new task title" %>
