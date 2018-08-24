@@ -13,6 +13,8 @@
           <%= f.input :max_mark %>
           <%= f.button :submit, class: "btn-markbook" %>
         <% end %>
+        <br>
+        <%= link_to "Delete Task", task_path(task), method: :delete, class: "btn-markbook", id: "red" %>
       </div>
     </div>
   </div>

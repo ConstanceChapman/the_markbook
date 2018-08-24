@@ -1,0 +1,22 @@
+
+console.log("create.js")
+function refreshForm(innerHTML) {
+  const newTaskForm = document.getElementById('new_task');
+  newTaskForm.innerHTML = innerHTML;
+}
+
+function addTask(taskHTML) {
+  const tasks = document.getElementById('marks-index');
+  tasks.insertAdjacentHTML('beforeend', taskHTML);
+}
+
+<% if @task.errors.any? %>
+  refreshForm('<%= j render "tasks/create_form", teaching_set: @teaching_set, task: @task %>');
+  document.getElementById('side-panel').classList.add('cd-panel--is-visible');
+  document.getElementById('show-form').classList.add('hidden');
+  scrollRight()
+<% else %>
+  addTask('<%= j render "tasks/task_column", task: @task, marks: @task.marks %>');
+  refreshForm('<%= j render "tasks/create_form", teaching_set: @teaching_set, task: Task.new %>');
+  scrollRight()
+<% end %>

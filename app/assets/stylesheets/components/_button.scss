@@ -1,7 +1,8 @@
 .btn-markbook {
-  background-color: $green;
+  background-color: white;
   border-radius: 3px;
-  color: $white;
+  border: 2px solid $green;
+  color: $green;
   padding: 5px 10px;
   display: flex;
   justify-content: space-around;
@@ -9,11 +10,21 @@
   width: 100%;
   transition: background 0.3s ease;
   &:hover {
-    background-color: $light-green;
+    background-color: $green;
     text-decoration: none;
     color: $white;
   }
 }
+
+#red {
+  border: 2px solid $red;
+  color: $red;
+  &:hover {
+    background-color: $red;
+    color: $white;
+  }
+}
+
 #btn-homepage {
   width: 120px;
   margin-top: 30px;

@@ -2,6 +2,11 @@ import "bootstrap";
 import "fullcalendar";
 import "fullcalendar/dist/fullcalendar.min.css"
 import { toggleTabClass } from "../components/tabs.js"
+import { toggleSidePanel } from "../components/sidepanel.js"
+
+if (document.getElementById('side-panel')) {
+  toggleSidePanel();
+}
 
 // $(document).ready(function(){
   document.addEventListener("DOMContentLoaded",function(){
@@ -32,3 +37,10 @@ import { toggleTabClass } from "../components/tabs.js"
     })
   })
 // };
+function scrollRight(){
+  var el = document.getElementById("marks-index");
+  if (el) {
+    el.scrollLeft = el.scrollWidth - el.clientWidth;
+  }
+}
+scrollRight()

@@ -1,0 +1,17 @@
+<div class="markbook-column">
+  <h5><strong>
+    <%= task.title %>
+      <a class="btn-pencil" type="button" data-toggle="modal" data-target="<%= "#edit-task#{task.id}" %>">
+      <i class="fas fa-pencil-alt"></i>
+    </a>
+    </strong></h5>
+  <h5>
+    Max mark: <%= task.max_mark %>
+  </h5>
+  <p id="date"><%= task.created_at.strftime('%d.%m.%y') %></p>
+  <% marks.each do |mark| %>
+    <div class="mark_#{mark.id}">
+      <%= render 'tasks/mark_form', mark: mark %>
+    </div>
+  <% end %>
+</div>
