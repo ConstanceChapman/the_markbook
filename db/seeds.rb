@@ -562,7 +562,7 @@ puts "Seeding lessons..."
 # LESSONS - LE WAGON
 
 lewagon_monday = Lesson.create!(
-  start_time: "2018-08-28 09:00",
+  start_time: "2018-08-27 09:00",
   end_time: "2018-08-27 18:30",
   teaching_set: lewagon
   )

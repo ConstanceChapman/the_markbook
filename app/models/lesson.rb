@@ -26,5 +26,19 @@ class Lesson < ApplicationRecord
         )
     end
   end
+
+  def previous
+    previous_lessons = self.teaching_set.lessons.map do |lesson|
+      lesson if lesson.start_time < self.start_time
+    end
+    previous_lessons.compact.sort_by{ |l| l.start_time }.last
+  end
+
+  def next
+    next_lessons = self.teaching_set.lessons.map do |lesson|
+      lesson if lesson.start_time > self.start_time
+    end
+    next_lessons.compact.sort_by{ |l| l.start_time }.first
+  end
 end
 
