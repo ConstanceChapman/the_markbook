@@ -49,7 +49,8 @@ lewagon = TeachingSet.new(
   year_group: "Batch 164",
   start_date: "2018-07-02",
   end_date: "2018-08-31",
-  user: user1
+  user: user1,
+  color: "#5FCC9C"
   )
 lewagon.save!
 
@@ -58,7 +59,8 @@ potions5 = TeachingSet.new(
   year_group: "Year 5",
   start_date: "2018-01-08",
   end_date: "2018-12-21",
-  user: user2
+  user: user2,
+  color: "#5FCC9C"
   )
 potions5.save!
 
@@ -67,7 +69,8 @@ defense5 = TeachingSet.new(
   year_group: "Year 5",
   start_date: "2018-01-08",
   end_date: "2018-12-21",
-  user: user2
+  user: user2,
+  color: "#215B63"
   )
 defense5.save!
 

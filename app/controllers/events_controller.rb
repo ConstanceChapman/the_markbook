@@ -11,12 +11,10 @@ class EventsController < ApplicationController
       {
         title: "#{l.teaching_set.year_group}, #{l.teaching_set.subject}",
         start: "#{l.start_time.strftime('%Y-%m-%dT%H:%M:%S')}",
-
-        # 2010-01-09T12:30:00
-        # 2018-08-31T 9:00:00
-        # color: "",
+        end: "#{l.end_time.strftime('%Y-%m-%dT%H:%M:%S')}",
+        color: "#{l.teaching_set.color}"
+        # className: "" / [],
         # textColor: "",
-        # allDay: false
       }
     end
   end
