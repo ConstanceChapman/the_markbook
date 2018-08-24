@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :lessons, only: [:index, :show]
     resources :tasks, only: [:index, :create]
     resources :report_cycles, only: [:index]
+    get 'events', to: 'events#filtered_index', defaults: { format: :json }
   end
 
   resources :scores, only: [:update]

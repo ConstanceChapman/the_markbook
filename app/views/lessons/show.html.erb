@@ -1,9 +1,33 @@
 <div class="container">
+  <div class="row lesson-navigation">
+    <div id="font-larger">
+      <%= link_to "All Lessons", teaching_set_lessons_path(@lesson.teaching_set) %>
+    </div>
+    <div class="text-center" id="lesson-title">
+      <h3><%= @lesson.start_time.strftime('%a, %e %b %Y - %H:%M') %></h3>
+    </div>
+    <div id="lesson-arrows">
+      <% if @lesson.previous %>
+        <%= link_to teaching_set_lesson_path(@lesson.teaching_set,@lesson.previous) do %>
+          <i class="fas fa-caret-left fa-2x"></i>
+        <% end %>
+      <% else %>
+        <i class="fas fa-caret-left fa-2x text-muted"></i>
+      <% end %>
+      <% if @lesson.next %>
+        <%= link_to teaching_set_lesson_path(@lesson.teaching_set,@lesson.next) do %>
+          <i class="fas fa-caret-right fa-2x"></i>
+        <% end %>
+      <% else %>
+        <i class="fas fa-caret-right fa-2x text-muted"></i>
+      <% end %>
+    </div>
+  </div>
   <div class="row">
     <% @lesson.scores.sort_by {|score| score.set_pupil.pupil.last_name }.each do |score| %>
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
       <div class="pupil-card text-center">
-        <h4><%= score.set_pupil.pupil.first_name %> <%= score.set_pupil.pupil.last_name %></h4>
+        <h4><%= score.set_pupil.pupil.first_name %><br><%= score.set_pupil.pupil.last_name %></h4>
         <div id="avatarbuttons">
           <div id=<%= "minus_score_form_score_#{score.id}" %>>
             <%= render 'lessons/minus_form', score: score %>
