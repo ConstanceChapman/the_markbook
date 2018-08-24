@@ -2,6 +2,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  padding: 30px;
 }
 
 #markbook-pupil {
@@ -20,6 +21,7 @@
 }
 
 .marks-index {
+  flex: 1 0 auto;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -32,4 +34,8 @@
 
 .new-task-form {
   padding: 10px;
+}
+
+.hidden {
+  display: none !important;
 }
