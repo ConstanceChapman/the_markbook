@@ -27,7 +27,7 @@
     <% @lesson.scores.sort_by {|score| score.set_pupil.pupil.last_name }.each do |score| %>
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
       <div class="pupil-card text-center">
-        <h4><%= score.set_pupil.pupil.first_name %> <%= score.set_pupil.pupil.last_name %></h4>
+        <h4><%= score.set_pupil.pupil.first_name %><br><%= score.set_pupil.pupil.last_name %></h4>
         <div id="avatarbuttons">
           <div id=<%= "minus_score_form_score_#{score.id}" %>>
             <%= render 'lessons/minus_form', score: score %>
