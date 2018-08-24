@@ -33,7 +33,7 @@ class EventsController < ApplicationController
         start: "#{l.start_time.strftime('%Y-%m-%dT%H:%M:%S')}",
         end: "#{l.end_time.strftime('%Y-%m-%dT%H:%M:%S')}",
         color: "#{l.teaching_set.color}",
-        url: "teaching_sets/#{l.teaching_set.id}/lessons/#{l.id}"
+        url: "lessons/#{l.id}"
       }
     end
   end
