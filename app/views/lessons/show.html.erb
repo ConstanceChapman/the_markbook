@@ -9,7 +9,7 @@
             <%= render 'lessons/minus_form', score: score %>
           </div>
 
-          <%= image_tag "avatar.png", class: "avatar" %>
+          <%= image_tag "#{score.set_pupil.pupil.photo}", class: "avatar" %>
 
           <div id=<%= "plus_score_form_score_#{score.id}" %>>
             <%= render 'lessons/plus_form', score: score %>
