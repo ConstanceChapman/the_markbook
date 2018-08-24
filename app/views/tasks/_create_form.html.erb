@@ -1,0 +1,6 @@
+<%= simple_form_for([teaching_set, task], remote: true, html: {class: "form-inline mark-area"})do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :title, label: false, placeholder: "new task title" %>
+  <%= f.input :max_mark, label: false, placeholder: "max mark" %>
+  <%= f.button :submit, class: "btn-markbook", id: "new-task-button" %>
+<% end %>

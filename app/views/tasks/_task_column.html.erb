@@ -1,0 +1,21 @@
+<div class="markbook-column">
+  <h5><strong>
+    <%= task.title %>
+      <a class="btn-pencil" type="button" data-toggle="modal" data-target="<%= "#edit-task#{task.id}" %>">
+      <i class="fas fa-pencil-alt"></i>
+    </a>
+    </strong></h5>
+  <h5>
+    Max mark: <%= task.max_mark %>
+  </h5>
+  <p id="date"><%= task.created_at.strftime('%d.%m.%y') %></p>
+  <% marks.each do |mark| %>
+    <%= render "tasks/mark-comment-modal", mark: mark %>
+    <div class="mark_#{mark.id}" id="inline">
+      <%= render 'tasks/mark_form', mark: mark %>
+      <a class="btn-pencil" type="button" data-toggle="modal" data-target="<%= "#comment-mark#{mark.id}" %>">
+      <i class="fas fa-plus"></i>
+    </a>
+    </div>
+  <% end %>
+</div>

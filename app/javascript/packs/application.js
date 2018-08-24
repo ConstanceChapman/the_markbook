@@ -2,6 +2,11 @@ import "bootstrap";
 import "fullcalendar";
 import "fullcalendar/dist/fullcalendar.min.css"
 import { toggleTabClass } from "../components/tabs.js"
+import { toggleSidePanel } from "../components/sidepanel.js"
+
+if (document.getElementById('side-panel')) {
+  toggleSidePanel();
+}
 
 document.addEventListener("DOMContentLoaded",function(){
   var calendar = $('#calendar')
@@ -52,4 +57,12 @@ document.addEventListener("DOMContentLoaded",function(){
     }
   })
 })
+
+function scrollRight(){
+  var el = document.getElementById("marks-index");
+  if (el) {
+    el.scrollLeft = el.scrollWidth - el.clientWidth;
+  }
+}
+scrollRight();
 

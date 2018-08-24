@@ -1,7 +1,8 @@
 class TasksController < ApplicationController
   def index
-    @teaching_set = TeachingSet.find(params[:teaching_set_id])
+    @teaching_set = TeachingSet.where(id: params[:teaching_set_id]).includes(tasks: { marks: { set_pupil: :pupil } })
     @result_hash = {}
+    @teaching_set = @teaching_set.first
     @teaching_set.tasks.each do |task|
       @result_hash[task] = task.marks.sort_by { |mark| mark.set_pupil.pupil.last_name }
     end
@@ -17,9 +18,15 @@ class TasksController < ApplicationController
       @result_hash[task] = task.marks.sort_by { |mark| mark.set_pupil.pupil.last_name }
     end
     if @task.save
-      redirect_to teaching_set_tasks_path(@teaching_set)
+      respond_to do |format|
+        # format.html { redirect_to teaching_set_tasks_path(@teaching_set) }
+        format.js # <-- will render `app/views/tasks/create.js.erb`
+      end
     else
-      render 'tasks/index'
+      respond_to do |format|
+        format.html { render 'tasks/index' }
+        format.js
+      end
     end
   end
 
@@ -32,6 +39,7 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
+    redirect_to teaching_set_tasks_path(@task.teaching_set)
   end
 
   private
