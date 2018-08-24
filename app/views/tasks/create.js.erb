@@ -1,5 +1,10 @@
+function scrollRight(){
+  var el = document.getElementById("marks-index");
+  if (el) {
+    el.scrollLeft = el.scrollWidth - el.clientWidth;
+  }
+}
 
-console.log("create.js")
 function refreshForm(innerHTML) {
   const newTaskForm = document.getElementById('new_task');
   newTaskForm.innerHTML = innerHTML;
