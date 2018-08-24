@@ -12,7 +12,7 @@
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <% current_user.teaching_sets.each do |teaching_set| %>
             <li>
-              <%= link_to teaching_set_lessons_path(teaching_set) do %>
+              <%= link_to teaching_set_tasks_path(teaching_set) do %>
                 <%= teaching_set.year_group %>, <%= teaching_set.subject %>
               <% end %>
             </li>
