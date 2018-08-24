@@ -32,3 +32,13 @@
 #date {
   font-size: 14px;
 }
+
+#inline {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 45%;
+  a {
+    margin-top: 8px;
+  }
+}

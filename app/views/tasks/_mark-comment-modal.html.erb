@@ -1,4 +1,4 @@
-<div class="modal fade" id="<%= "edit-task#{task.id}" %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="<%= "comment-mark#{mark.id}" %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -7,13 +7,10 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for task do |f| %>
-          <%= f.input :title %>
-          <%= f.input :max_mark %>
+        <%= simple_form_for mark do |f| %>
+          <%= f.input :comment %>
           <%= f.button :submit, class: "btn-markbook" %>
         <% end %>
-        <br>
-        <%= link_to "Delete Task", task_path(task), method: :delete, class: "btn-markbook", id: "red" %>
       </div>
     </div>
   </div>
