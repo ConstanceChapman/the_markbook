@@ -19,12 +19,16 @@ import { toggleTabClass } from "../components/tabs.js"
       allDaySlot: false,
       nowIndicator: true,
       defaultView: 'agendaDay',
-      // defaultTimedEventDuration: "01:30:00",
       // selectable: true,
       // selectHelper: true,
-      // editable: true,
       // eventLimit: true,
       events: "/events",
+      eventClick: function(event) {
+        // if (event.url) {
+          // window.open("teaching_sets/:teaching_set_id/lessons/:id");
+          window.open(event.url, "_self");
+        // }
+      }
     })
   })
 // };
