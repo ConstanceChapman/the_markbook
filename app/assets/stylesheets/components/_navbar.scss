@@ -17,8 +17,9 @@
 
 /* User Avatar */
 .navbar-wagon .avatar {
-  height: 35px;
-  width: 35px;
+  height: 45px;
+  width: 45px;
+  margin-left: 10px;
   border-radius: 50%;
 }
 
@@ -26,13 +27,13 @@
 .navbar-wagon-right {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  // justify-content: space-between;
 }
 
 /* Basic navbar item */
 .navbar-wagon-item {
   cursor: pointer;
-  padding: 0 20px;
+  padding: 0 10px;
 }
 
 /* Navbar link */

@@ -6,13 +6,14 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
+    <%= link_to "Timetable", teaching_sets_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <div class="navbar-wagon-item">
       <div class="dropdown">
         <a href="" class="navbar-wagon-item navbar-wagon-link dropdown-toggle" data-toggle="dropdown">Classes</a>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <% current_user.teaching_sets.each do |teaching_set| %>
             <li>
-              <%= link_to teaching_set_lessons_path(teaching_set) do %>
+              <%= link_to teaching_set_tasks_path(teaching_set) do %>
                 <%= teaching_set.year_group %>, <%= teaching_set.subject %>
               <% end %>
             </li>
@@ -20,8 +21,7 @@
         </ul>
       </div>
     </div>
-    <%= link_to "Logout", destroy_user_session_path,
-    method: :delete, class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" %>
     <%= image_tag "#{current_user.photo}", class: "avatar" %>
   </div>
 
