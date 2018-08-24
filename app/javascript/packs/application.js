@@ -3,6 +3,7 @@ import "fullcalendar";
 import "fullcalendar/dist/fullcalendar.min.css"
 import { toggleTabClass } from "../components/tabs.js"
 import { toggleSidePanel } from "../components/sidepanel.js"
+import { scrollRight } from "../components/scroll-right.js"
 
 if (document.getElementById('side-panel')) {
   toggleSidePanel();
@@ -65,4 +66,3 @@ function scrollRight(){
   }
 }
 scrollRight();
-
