@@ -6,6 +6,7 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
+    <%= link_to "Timetable", teaching_sets_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <div class="navbar-wagon-item">
       <div class="dropdown">
         <a href="" class="navbar-wagon-item navbar-wagon-link dropdown-toggle" data-toggle="dropdown">Classes</a>
@@ -20,8 +21,7 @@
         </ul>
       </div>
     </div>
-    <%= link_to "Logout", destroy_user_session_path,
-    method: :delete, class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" %>
     <%= image_tag "#{current_user.photo}", class: "avatar" %>
   </div>
 
