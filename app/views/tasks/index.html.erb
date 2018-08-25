@@ -5,9 +5,9 @@
     <% end %>
   </div>
   <div class="marks-index" id="marks-index">
-    <% @result_hash.each do |task, marks| %>
+    <% @result_hash.keys.sort_by { |task| task.created_at}.each do |task| %>
       <%= render "tasks/edit-modal", task: task %>
-      <%= render "tasks/task_column", task: task, marks: marks %>
+      <%= render "tasks/task_column", task: task, marks: @result_hash[task] %>
     <% end %>
   </div>
 
