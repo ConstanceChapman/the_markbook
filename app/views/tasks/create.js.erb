@@ -21,7 +21,7 @@ function addTask(taskHTML) {
   document.getElementById('show-form').classList.add('hidden');
   scrollRight()
 <% else %>
-  addTask('<%= j render "tasks/task_column", task: @task, marks: @task.marks %>');
+  addTask('<%= j render "tasks/task_column", task: @task, marks: @task.marks.sort_by { |mark| mark.set_pupil.pupil.last_name } %>');
   refreshForm('<%= j render "tasks/create_form", teaching_set: @teaching_set, task: Task.new %>');
   scrollRight()
 <% end %>
