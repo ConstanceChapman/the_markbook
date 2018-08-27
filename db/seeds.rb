@@ -60,7 +60,7 @@ potions5 = TeachingSet.new(
   start_date: "2018-01-08",
   end_date: "2018-12-21",
   user: user2,
-  color: "#5FCC9C" #$green
+  color: "#215B63" #$dark-green
   )
 potions5.save!
 
@@ -70,7 +70,7 @@ potions7 = TeachingSet.new(
   start_date: "2018-01-08",
   end_date: "2018-12-21",
   user: user2,
-  color: "#215B63" #$dark-green
+  color: "#5FCC9C" #$green
   )
 potions7.save!
 
@@ -700,8 +700,8 @@ potions7_monday = Lesson.create!(
   )
 
 potions7_friday = Lesson.create!(
-  start_time: "13:00",
-  end_time: "14:30",
+  start_time: "14:00",
+  end_time: "15:30",
   weekday: [5],
   report_cycle: potions7_summer,
   teaching_set: potions7
@@ -738,8 +738,8 @@ defense3_wednesday = Lesson.create!(
   )
 
 defense3_friday = Lesson.create!(
-  start_time: "08:00",
-  end_time: "09:30",
+  start_time: "10:00",
+  end_time: "11:30",
   weekday: [5],
   report_cycle: defense3_summer,
   teaching_set: defense3
