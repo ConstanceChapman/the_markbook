@@ -28,6 +28,16 @@ document.addEventListener("DOMContentLoaded",function(){
     // selectHelper: true,
     // eventLimit: true,
     events: "/events",
+
+    // eventRender: function(event){
+    //   return (event.ranges.filter(function(range){ // test event against all the ranges
+
+    //       return (event.start.isBefore(range.end) &&
+    //               event.end.isAfter(range.start));
+
+    //   }).length)>0; //if it isn't in the range, don't render it (by returning false)
+    // },
+
     eventClick: function(event) {
       window.open(event.url, "_self");
     }
