@@ -12,6 +12,7 @@
 
 class Lesson < ApplicationRecord
   belongs_to :teaching_set
+  belongs_to :report_cycle
   has_many :pupils, through: :teaching_set
   has_many :scores, dependent: :destroy
   after_create_commit :make_pupil_scores
