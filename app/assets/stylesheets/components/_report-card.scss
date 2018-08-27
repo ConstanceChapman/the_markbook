@@ -1,0 +1,118 @@
+.report-cycles-container {
+  margin: 5px 10px;
+  p {
+    padding: 5px 0;
+  }
+}
+
+.bottom-border {
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+
+.report-modal-content {
+  background-color: $white;
+}
+
+.report-marks {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mark-box {
+  background-color: white;
+  height: 150px;
+  width: 160px;
+  padding: 5px;
+  border-radius: 2px;
+  margin: 5px 5px 10px 5px;
+  p {
+    padding: 0;
+  }
+  position: relative;
+}
+
+.report-card-circle {
+    position: absolute;
+    top: -37px;
+    left: 20px;
+    margin: 10px;
+}
+
+.icon-circle {
+  position: absolute;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
+  i {
+    font-size: 32px;
+  }
+}
+
+#thumbs-down {
+  background-color: $red;
+  margin: 10px;
+  left: 10px;
+}
+
+#thumbs-up {
+  background-color: $green;
+  margin: 10px;
+  left: 10px;
+}
+
+.average-mark {
+  position: absolute;
+  bottom: 40px;
+  width: 100%;
+  p {
+    font-size: 32px;
+  }
+}
+
+.stats {
+  position: absolute;
+  bottom: 35px;
+  width: 100%;
+  p {
+    padding: 0;
+  }
+}
+
+.mark-box-banner {
+  position: absolute;
+  bottom: -6px;
+  right: -7px;
+  border-radius: 50px;
+  color: white;
+  padding: 5px 10px;
+  width: 170px;
+}
+
+#blue-mb-banner {
+  background-color: $dark-blue;
+}
+
+#green-mb-banner {
+  background-color: $green;
+}
+
+#red-mb-banner {
+  background-color: $red;
+}
+
+.blue-mb {
+  border: 2px solid $dark-blue;
+}
+
+.green-mb {
+  border: 2px solid $green;
+}
+
+.red-mb {
+  border: 2px solid $red;
+}

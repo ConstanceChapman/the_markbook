@@ -1,26 +1,77 @@
 <div class="modal fade" id="<%= "view-report-#{report.report_cycle.id}-#{report.set_pupil.id}" %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content report-modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <% pupil = report.set_pupil.decorate %>
-        <p>Average mark: <%= pupil.average_mark(report.report_cycle) %>%</p>
-        <p>Top mark: <%= pupil.top_mark(report.report_cycle) %></p>
-        <p>Bottom mark: <%= pupil.bottom_mark(report.report_cycle) %></p>
-        <p>Average behaviour: <%= pupil.average_score(report.report_cycle) %></p>
-        <% if pupil.behaviour_comments(report.report_cycle).length > 0 %>
-          <p><strong>Behaviour comments:</strong><br>
-            <% pupil.behaviour_comments(report.report_cycle).each do |comment| %>
-              <%= comment %><br>
-            <% end %>
-          </p>
-        <% end %>
+        <div class="report-marks">
+          <% pupil = report.set_pupil.decorate %>
+          <% if pupil.get_valid_marks(report.report_cycle).length < 1 %>
+            <p>No marks recorded</p>
+          <% else %>
+            <div class="mark-box red-mb">
+              <div class="report-card-circle">
+                <div class="icon-circle" id="thumbs-down">
+                  <i class="fas fa-thumbs-down"></i>
+                </div>
+              </div>
+              <div class="stats text-center">
+                <% stats = pupil.bottom_mark(report.report_cycle) %>
+                <p><%= stats[:task] %></p>
+                <p><%= "#{stats[:percentage]}% (#{stats[:raw]})" %></p>
+              </div>
+              <div class="mark-box-banner" id="red-mb-banner">
+                <p>BOTTOM MARK</p>
+              </div>
+            </div>
+            <div class="mark-box blue-mb">
+              <div class="report-card-circle">
+                <%= image_tag "#{report.set_pupil.pupil.photo}", class: "avatar", id: "report-card-pic" %>
+              </div>
+              <div class="average-mark text-center">
+                <p><%= pupil.average_mark(report.report_cycle) %>%</p>
+              </div>
+              <div class="mark-box-banner" id="blue-mb-banner">
+                <p>AVERAGE MARK</p>
+              </div>
+            </div>
+            <div class="mark-box green-mb">
+              <div class="report-card-circle">
+                <div class="icon-circle" id="thumbs-up">
+                  <i class="fas fa-thumbs-up"></i>
+                </div>
+              </div>
+              <div class="stats text-center">
+                <% stats = pupil.top_mark(report.report_cycle) %>
+                <p><%= stats[:task] %></p>
+                <p><%= "#{stats[:percentage]}% (#{stats[:raw]})" %></p>
+              </div>
+              <div class="mark-box-banner" id="green-mb-banner">
+                <p>TOP MARK</p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+          <p class="bottom-border"><strong>Average behaviour:</strong> <%= pupil.average_score(report.report_cycle) %></p>
+          <% if pupil.behaviour_comments(report.report_cycle).length > 0 %>
+            <p class="bottom-border"><strong>Behaviour comments:</strong><br>
+              <% pupil.behaviour_comments(report.report_cycle).each do |comment| %>
+                <%= comment %><br>
+              <% end %>
+            </p>
+          <% end %>
+          <% if pupil.academic_comments(report.report_cycle).length > 0 %>
+            <p><strong>Academic comments:</strong><br>
+              <% pupil.academic_comments(report.report_cycle).each do |comment| %>
+                <%= comment %><br>
+              <% end %>
+            </p>
+          <% end %>
         <%= simple_form_for report do |f| %>
-          <%= f.input :content %>
+          <%= f.input :content, label: false, placeholder: "Report for #{report.set_pupil.pupil.first_name} #{report.set_pupil.pupil.last_name} (#{report.report_cycle.name})" %>
           <%= f.button :submit, class: "btn-markbook" %>
         <% end %>
       </div>
