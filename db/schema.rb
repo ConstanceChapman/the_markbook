@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_24_092701) do
+ActiveRecord::Schema.define(version: 2018_08_27_130953) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,9 @@ ActiveRecord::Schema.define(version: 2018_08_24_092701) do
     t.bigint "teaching_set_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "weekday", default: [], array: true
+    t.bigint "report_cycle_id"
+    t.index ["report_cycle_id"], name: "index_lessons_on_report_cycle_id"
     t.index ["teaching_set_id"], name: "index_lessons_on_teaching_set_id"
   end
 
@@ -119,6 +122,7 @@ ActiveRecord::Schema.define(version: 2018_08_24_092701) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "lessons", "report_cycles"
   add_foreign_key "lessons", "teaching_sets"
   add_foreign_key "marks", "set_pupils"
   add_foreign_key "marks", "tasks"
