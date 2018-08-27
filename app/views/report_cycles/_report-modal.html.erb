@@ -7,8 +7,48 @@
         </button>
       </div>
       <div class="modal-body">
-        <div class="report-marks">
-          <% pupil = report.set_pupil.decorate %>
+        <% pupil = report.set_pupil.decorate %>
+        <h3><%= "#{report.set_pupil.pupil.first_name} #{report.set_pupil.pupil.last_name}" %></h3>
+        <div class="report-behaviour bottom-border">
+          <% if pupil.average_score(report.report_cycle) == 0 %>
+            <div class="mark-box blue-mb">
+              <div class="report-card-circle">
+                <%= image_tag "#{report.set_pupil.pupil.photo}", class: "avatar", id: "report-card-pic" %>
+              </div>
+              <div class="average-score text-center">
+                <p><%= pupil.average_score(report.report_cycle) %></p>
+              </div>
+              <div class="mark-box-banner" id="blue-mb-banner">
+                <p id="small-font">AVERAGE BEHAVIOUR</p>
+              </div>
+            </div>
+          <% elsif pupil.average_score(report.report_cycle) > 0 %>
+            <div class="mark-box green-mb">
+              <div class="report-card-circle">
+                <%= image_tag "#{report.set_pupil.pupil.photo}", class: "avatar", id: "report-card-pic" %>
+              </div>
+              <div class="average-score text-center">
+                <p><%= pupil.average_score(report.report_cycle) %></p>
+              </div>
+              <div class="mark-box-banner" id="green-mb-banner">
+                <p id="small-font">AVERAGE BEHAVIOUR</p>
+              </div>
+            </div>
+          <% else %>
+            <div class="mark-box red-mb">
+              <div class="report-card-circle">
+                <%= image_tag "#{report.set_pupil.pupil.photo}", class: "avatar", id: "report-card-pic" %>
+              </div>
+              <div class="average-score text-center">
+                <p><%= pupil.average_score(report.report_cycle) %></p>
+              </div>
+              <div class="mark-box-banner" id="red-mb-banner">
+                <p id="small-font">AVERAGE BEHAVIOUR</p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="report-marks bottom-border">
           <% if pupil.get_valid_marks(report.report_cycle).length < 1 %>
             <p>No marks recorded</p>
           <% else %>
@@ -29,7 +69,9 @@
             </div>
             <div class="mark-box blue-mb">
               <div class="report-card-circle">
-                <%= image_tag "#{report.set_pupil.pupil.photo}", class: "avatar", id: "report-card-pic" %>
+                <div class="icon-circle" id="behaviour">
+                  <i class="fas fa-chart-line"></i>
+                </div>
               </div>
               <div class="average-mark text-center">
                 <p><%= pupil.average_mark(report.report_cycle) %>%</p>
@@ -55,24 +97,27 @@
             </div>
           <% end %>
         </div>
-          <p class="bottom-border"><strong>Average behaviour:</strong> <%= pupil.average_score(report.report_cycle) %></p>
           <% if pupil.behaviour_comments(report.report_cycle).length > 0 %>
-            <p class="bottom-border"><strong>Behaviour comments:</strong><br>
-              <% pupil.behaviour_comments(report.report_cycle).each do |comment| %>
-                <%= comment %><br>
+          <div class="comments">
+            <p><strong>Behaviour comments:</strong><br>
+              <% pupil.behaviour_comments(report.report_cycle).each do |score| %>
+                <%= "#{score.comment} - " %><%= link_to "(#{score.lesson.start_time.strftime('%a, %e %b')})", teaching_set_lesson_path(score.lesson.teaching_set.id, score.lesson.id) %> <br>
               <% end %>
             </p>
+          </div>
           <% end %>
           <% if pupil.academic_comments(report.report_cycle).length > 0 %>
+          <div class="comments">
             <p><strong>Academic comments:</strong><br>
-              <% pupil.academic_comments(report.report_cycle).each do |comment| %>
-                <%= comment %><br>
+              <% pupil.academic_comments(report.report_cycle).each do |mark| %>
+                <%= "#{mark.task.title} (#{mark.percentage}%): #{mark.comment}" %><br>
               <% end %>
             </p>
+          </div>
           <% end %>
         <%= simple_form_for report do |f| %>
           <%= f.input :content, label: false, placeholder: "Report for #{report.set_pupil.pupil.first_name} #{report.set_pupil.pupil.last_name} (#{report.report_cycle.name})" %>
-          <%= f.button :submit, class: "btn-markbook" %>
+          <%= f.button :submit, class: "btn-markbook inverse" %>
         <% end %>
       </div>
     </div>

@@ -62,7 +62,7 @@ class SetPupilDecorator < Draper::Decorator
     report_cycle_scores = get_scores(report_cycle)
     comments = []
     report_cycle_scores.each do |score|
-      comments << score.comment if score.comment
+      comments << score if score.comment
     end
     return comments
   end
@@ -71,7 +71,7 @@ class SetPupilDecorator < Draper::Decorator
     report_cycle_marks = get_valid_marks(report_cycle)
     comments = []
     report_cycle_marks.each do |mark|
-      comments << mark.comment if mark.comment != nil
+      comments << mark if mark.comment != nil
     end
     return comments
   end
