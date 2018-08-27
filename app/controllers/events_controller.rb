@@ -15,7 +15,7 @@ class EventsController < ApplicationController
         dow: l.weekday,
         ranges: [{
           start: "#{l.report_cycle.start_date.strftime('%Y-%m-%d')}",
-          end: "#{l.report_cycle.start_date.strftime('%Y-%m-%d')}"}],
+          end: "#{l.report_cycle.end_date.strftime('%Y-%m-%d')}"}],
         color: "#{l.teaching_set.color}",
         url: "teaching_sets/#{l.teaching_set.id}/lessons/#{l.id}"
         # className: "" / [],
@@ -40,9 +40,9 @@ class EventsController < ApplicationController
         dow: l.weekday,
         ranges: [{
           start: "#{l.report_cycle.start_date.strftime('%Y-%m-%d')}",
-          end: "#{l.report_cycle.start_date.strftime('%Y-%m-%d')}"}],
+          end: "#{l.report_cycle.end_date.strftime('%Y-%m-%d')}"}],
         color: "#{l.teaching_set.color}",
-        url: "teaching_sets/#{l.teaching_set.id}/lessons/#{l.id}"
+        url: "lessons/#{l.id}"
         # className: "" / [],
         # textColor: "",
       }
