@@ -10,7 +10,7 @@
           <div class="report-cycles-container">
             <% set_pupil.report_cycles.each do |report_cycle| %>
               <%= render partial: "report_cycles/report-modal", locals: { report: report_cycle.reports.find_by(set_pupil: set_pupil) } %>
-              <a type="button" data-toggle="modal" data-target="<%= "#view-report-#{report_cycle.id}-#{set_pupil.id}" %>"><p><%= report_cycle.name %></p></a>
+              <a type="button" data-toggle="modal" data-target="<%= "#view-report-#{report_cycle.id}-#{set_pupil.id}" %>"><p class="bottom-border"><%= report_cycle.name %></p></a>
             <% end %>
           </div>
         </div>

@@ -17,11 +17,20 @@
 }
 
 .btn-markbook.home {
-    background-color: $dark-blue !important;
-    &:hover {
-      background-color: $green !important;
-    }
+  background-color: $dark-blue !important;
+  &:hover {
+    background-color: $green !important;
   }
+}
+
+.btn-markbook.inverse {
+  background-color: $green !important;
+  color: $white !important;
+  &:hover {
+    background-color: $white !important;
+    color: $green !important;
+  }
+}
 
 #red {
   border: 2px solid $red;

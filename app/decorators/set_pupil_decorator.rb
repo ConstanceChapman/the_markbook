@@ -40,23 +40,38 @@ class SetPupilDecorator < Draper::Decorator
 
   def top_mark(report_cycle)
     report_cycle_marks = get_valid_marks(report_cycle)
-    return "No marks recorded" if report_cycle_marks.length < 1
     top = report_cycle_marks.sort_by! { |mark| mark.percentage }.last
-    return "#{top.task.title} #{top.percentage}% (#{top.raw_mark}/#{top.task.max_mark})"
+    return {
+      task: "#{top.task.title}",
+      percentage: top.percentage,
+      raw: "#{top.raw_mark}/#{top.task.max_mark}"
+    }
   end
 
   def bottom_mark(report_cycle)
     report_cycle_marks = get_valid_marks(report_cycle)
-    return "No marks recorded" if report_cycle_marks.length < 1
-    top = report_cycle_marks.sort_by! { |mark| mark.percentage }.first
-    return "#{top.task.title} #{top.percentage}% (#{top.raw_mark}/#{top.task.max_mark})"
+    bottom = report_cycle_marks.sort_by! { |mark| mark.percentage }.first
+    return {
+      task: "#{bottom.task.title}",
+      percentage: bottom.percentage,
+      raw: "#{bottom.raw_mark}/#{bottom.task.max_mark}"
+    }
   end
 
   def behaviour_comments(report_cycle)
     report_cycle_scores = get_scores(report_cycle)
     comments = []
     report_cycle_scores.each do |score|
-      comments << score.comment if score.comment
+      comments << score if score.comment
+    end
+    return comments
+  end
+
+  def academic_comments(report_cycle)
+    report_cycle_marks = get_valid_marks(report_cycle)
+    comments = []
+    report_cycle_marks.each do |mark|
+      comments << mark if mark.comment != nil
     end
     return comments
   end

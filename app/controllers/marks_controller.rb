@@ -14,6 +14,6 @@ class MarksController < ApplicationController
   private
 
   def mark_params
-    params.require(:mark).permit(:raw_mark)
+    params.require(:mark).permit(:raw_mark, :comment)
   end
 end
