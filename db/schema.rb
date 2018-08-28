@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_28_101635) do
+ActiveRecord::Schema.define(version: 2018_08_28_102635) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,8 +62,13 @@ ActiveRecord::Schema.define(version: 2018_08_28_101635) do
     t.bigint "set_pupil_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "top_mark_id"
+    t.bigint "bottom_mark_id"
+    t.float "average_mark"
+    t.index ["bottom_mark_id"], name: "index_reports_on_bottom_mark_id"
     t.index ["report_cycle_id"], name: "index_reports_on_report_cycle_id"
     t.index ["set_pupil_id"], name: "index_reports_on_set_pupil_id"
+    t.index ["top_mark_id"], name: "index_reports_on_top_mark_id"
   end
 
   create_table "scores", force: :cascade do |t|
@@ -129,6 +134,8 @@ ActiveRecord::Schema.define(version: 2018_08_28_101635) do
   add_foreign_key "marks", "set_pupils"
   add_foreign_key "marks", "tasks"
   add_foreign_key "report_cycles", "teaching_sets"
+  add_foreign_key "reports", "marks", column: "bottom_mark_id"
+  add_foreign_key "reports", "marks", column: "top_mark_id"
   add_foreign_key "reports", "report_cycles"
   add_foreign_key "reports", "set_pupils"
   add_foreign_key "scores", "lessons"
