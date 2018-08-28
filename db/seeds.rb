@@ -18,14 +18,14 @@ puts "Seeding users..."
 
 # USERS
 
-user1 = User.new(
-  email: "connie@gmail.com",
-  password: "123456",
-  first_name: "Constance",
-  last_name: "Chapman",
-  photo: "teachers/connie.jpeg"
-  )
-user1.save!
+# user1 = User.new(
+#   email: "connie@gmail.com",
+#   password: "123456",
+#   first_name: "Constance",
+#   last_name: "Chapman",
+#   photo: "teachers/connie.jpeg"
+#   )
+# user1.save!
 
 user2 = User.new(
   email: "snape@gmail.com",
@@ -44,53 +44,53 @@ puts "Seeding teaching-sets..."
 
 # TEACHING-SETS
 
-lewagon = TeachingSet.new(
-  subject: "Le Wagon",
-  year_group: "Batch 164",
-  start_date: "2018-07-02",
-  end_date: "2018-08-31",
-  user: user1,
-  color: "#5FCC9C" #$green
-  )
-lewagon.save!
+# lewagon = TeachingSet.new(
+#   subject: "Le Wagon",
+#   year_group: "Batch 164",
+#   start_date: Date.new(2018,7,2),
+#   end_date: Date.new(2018,8,31),
+#   user: user1,
+#   color: "#5FCC9C" #$green
+#   )
+# lewagon.save!
 
 potions5 = TeachingSet.new(
   subject: "Potions",
   year_group: "Year 5",
-  start_date: "2018-01-08",
-  end_date: "2018-12-21",
+  start_date: Date.new(2018,1,8),
+  end_date: Date.new(2018,12,21),
   user: user2,
-  color: "#215B63" #$dark-green
+  color: "#215B63" # $dark-green
   )
 potions5.save!
 
 potions7 = TeachingSet.new(
   subject: "Potions",
   year_group: "Year 7",
-  start_date: "2018-01-08",
-  end_date: "2018-12-21",
+  start_date: Date.new(2018,1,8),
+  end_date: Date.new(2018,12,21),
   user: user2,
-  color: "#5FCC9C" #$green
+  color: "#5FCC9C" # $green
   )
 potions7.save!
 
 defense5 = TeachingSet.new(
   subject: "Defense Against The Dark Arts",
   year_group: "Year 5",
-  start_date: "2018-01-08",
-  end_date: "2018-12-21",
+  start_date: Date.new(2018,1,8),
+  end_date: Date.new(2018,12,21),
   user: user2,
-  color: "#232855" #$dark-blue
+  color: "#232855" # $dark-blue
   )
 defense5.save!
 
 defense3 = TeachingSet.new(
   subject: "Defense Against The Dark Arts",
   year_group: "Year 3",
-  start_date: "2018-01-08",
-  end_date: "2018-12-21",
+  start_date: Date.new(2018,1,8),
+  end_date: Date.new(2018,12,21),
   user: user2,
-  color: "#469AE0" #$blue
+  color: "#469AE0" # $blue
   )
 defense3.save!
 
@@ -101,41 +101,41 @@ puts "Seeding pupils..."
 
 # PUPILS - LE WAGON
 
-saskia = Pupil.new(
-  first_name: "Saskia",
-  last_name: "Menke",
-  photo: "le-wagon/saskia.jpeg"
-  )
-saskia.save!
+# saskia = Pupil.new(
+#   first_name: "Saskia",
+#   last_name: "Menke",
+#   photo: "le-wagon/saskia.jpeg"
+#   )
+# saskia.save!
 
-amanda = Pupil.new(
-  first_name: "Amanda",
-  last_name: "Schjørmann",
-  photo: "le-wagon/amanda.jpg"
-  )
-amanda.save!
+# amanda = Pupil.new(
+#   first_name: "Amanda",
+#   last_name: "Schjørmann",
+#   photo: "le-wagon/amanda.jpg"
+#   )
+# amanda.save!
 
-charles = Pupil.new(
-  first_name: "Charles",
-  last_name: "Sumner",
-  photo: "le-wagon/charles.jpeg"
+# charles = Pupil.new(
+#   first_name: "Charles",
+#   last_name: "Sumner",
+#   photo: "le-wagon/charles.jpeg"
 
-  )
-charles.save!
+#   )
+# charles.save!
 
-thiago = Pupil.new(
-  first_name: "Thiago",
-  last_name: "Oliva",
-  photo: "le-wagon/thiago.jpeg"
-  )
-thiago.save!
+# thiago = Pupil.new(
+#   first_name: "Thiago",
+#   last_name: "Oliva",
+#   photo: "le-wagon/thiago.jpeg"
+#   )
+# thiago.save!
 
-nick = Pupil.new(
-  first_name: "Nicolas",
-  last_name: "Feer",
-  photo: "le-wagon/nicolas.jpeg"
-  )
-nick.save!
+# nick = Pupil.new(
+#   first_name: "Nicolas",
+#   last_name: "Feer",
+#   photo: "le-wagon/nicolas.jpeg"
+#   )
+# nick.save!
 
 
 # PUPILS - HARRY POTTER
@@ -301,35 +301,35 @@ puts "Seeding set-pupils..."
 
 # SET-PUPILS - LE WAGON (5)
 
-saskia_lewagon = SetPupil.new(
-  teaching_set: lewagon,
-  pupil: saskia
-  )
-saskia_lewagon.save!
+# saskia_lewagon = SetPupil.new(
+#   teaching_set: lewagon,
+#   pupil: saskia
+#   )
+# saskia_lewagon.save!
 
-amanda_lewagon = SetPupil.new(
-  teaching_set: lewagon,
-  pupil: amanda
-  )
-amanda_lewagon.save!
+# amanda_lewagon = SetPupil.new(
+#   teaching_set: lewagon,
+#   pupil: amanda
+#   )
+# amanda_lewagon.save!
 
-charles_lewagon = SetPupil.new(
-  teaching_set: lewagon,
-  pupil: charles
-  )
-charles_lewagon.save!
+# charles_lewagon = SetPupil.new(
+#   teaching_set: lewagon,
+#   pupil: charles
+#   )
+# charles_lewagon.save!
 
-thiago_lewagon = SetPupil.new(
-  teaching_set: lewagon,
-  pupil: thiago
-  )
-thiago_lewagon.save!
+# thiago_lewagon = SetPupil.new(
+#   teaching_set: lewagon,
+#   pupil: thiago
+#   )
+# thiago_lewagon.save!
 
-nick_lewagon = SetPupil.new(
-  teaching_set: lewagon,
-  pupil: nick
-  )
-nick_lewagon.save!
+# nick_lewagon = SetPupil.new(
+#   teaching_set: lewagon,
+#   pupil: nick
+#   )
+# nick_lewagon.save!
 
 
 # SET-PUPILS - POTIONS 5 (14)
@@ -524,41 +524,43 @@ puts "Seeding report-cycles..."
 
 # REPORT-CYCLES - LE WAGON
 
-lewagon_total = ReportCycle.create!(
-  name: "Final Report",
-  start_date: "2018-07-02",
-  end_date: "2018-08-31",
-  teaching_set: lewagon
-  )
+# lewagon_total = ReportCycle.create!(
+#   name: "Final Report",
+#   start_date: Date.new(2018,7,2),
+#   end_date: Date.new(2018,8,31),
+#   teaching_set: lewagon
+#   )
+# lewagon_total_weeks = ((lewagon_total.end_date-lewagon_total.start_date)/7).round
 
 
 # REPORT-CYCLES - POTIONS 5
 
 potions5_winter = ReportCycle.create!(
   name: "Winter Term",
-  start_date: "2018-01-08",
-  end_date: "2018-03-19",
+  start_date: Date.new(2018,1,8),
+  end_date: Date.new(2018,3,19),
   teaching_set: potions5
   )
 
 potions5_spring = ReportCycle.create!(
   name: "Spring Term",
-  start_date: "2018-03-20",
-  end_date: "2018-06-20",
+  start_date: Date.new(2018,3,20),
+  end_date: Date.new(2018,6,20),
   teaching_set: potions5
   )
 
 potions5_summer = ReportCycle.create!(
   name: "Summer Term",
-  start_date: "2018-06-21",
-  end_date: "2018-09-22",
+  start_date: Date.new(2018,6,21),
+  end_date: Date.new(2018,9,22),
   teaching_set: potions5
   )
+potions5_summer_weeks = ((potions5_summer.end_date-potions5_summer.start_date)/7).round
 
 potions5_fall = ReportCycle.create!(
   name: "Fall Term",
-  start_date: "2018-09-23",
-  end_date: "2018-12-21",
+  start_date: Date.new(2018,9,23),
+  end_date: Date.new(2018,12,21),
   teaching_set: potions5
   )
 
@@ -567,29 +569,30 @@ potions5_fall = ReportCycle.create!(
 
 potions7_winter = ReportCycle.create!(
   name: "Winter Term",
-  start_date: "2018-01-08",
-  end_date: "2018-03-19",
+  start_date: Date.new(2018,1,8),
+  end_date: Date.new(2018,3,19),
   teaching_set: potions7
   )
 
 potions7_spring = ReportCycle.create!(
   name: "Spring Term",
-  start_date: "2018-03-20",
-  end_date: "2018-06-20",
+  start_date: Date.new(2018,3,20),
+  end_date: Date.new(2018,6,20),
   teaching_set: potions7
   )
 
 potions7_summer = ReportCycle.create!(
   name: "Summer Term",
-  start_date: "2018-06-21",
-  end_date: "2018-09-22",
+  start_date: Date.new(2018,6,21),
+  end_date: Date.new(2018,9,22),
   teaching_set: potions7
   )
+potions7_summer_weeks = ((potions7_summer.end_date-potions7_summer.start_date)/7).round
 
 potions7_fall = ReportCycle.create!(
   name: "Fall Term",
-  start_date: "2018-09-23",
-  end_date: "2018-12-21",
+  start_date: Date.new(2018,9,23),
+  end_date: Date.new(2018,12,21),
   teaching_set: potions7
   )
 
@@ -598,29 +601,30 @@ potions7_fall = ReportCycle.create!(
 
 defense5_winter = ReportCycle.create!(
   name: "Winter Term",
-  start_date: "2018-01-08",
-  end_date: "2018-03-19",
+  start_date: Date.new(2018,1,8),
+  end_date: Date.new(2018,3,19),
   teaching_set: defense5
   )
 
 defense5_spring = ReportCycle.create!(
   name: "Spring Term",
-  start_date: "2018-03-20",
-  end_date: "2018-06-20",
+  start_date: Date.new(2018,3,20),
+  end_date: Date.new(2018,6,20),
   teaching_set: defense5
   )
 
 defense5_summer = ReportCycle.create!(
   name: "Summer Term",
-  start_date: "2018-06-21",
-  end_date: "2018-09-22",
+  start_date: Date.new(2018,6,21),
+  end_date: Date.new(2018,9,22),
   teaching_set: defense5
   )
+defense5_summer_weeks = ((defense5_summer.end_date-defense5_summer.start_date)/7).round
 
 defense5_fall = ReportCycle.create!(
   name: "Fall Term",
-  start_date: "2018-09-23",
-  end_date: "2018-12-21",
+  start_date: Date.new(2018,9,23),
+  end_date: Date.new(2018,12,21),
   teaching_set: defense5
   )
 
@@ -628,29 +632,30 @@ defense5_fall = ReportCycle.create!(
 
 defense3_winter = ReportCycle.create!(
   name: "Winter Term",
-  start_date: "2018-01-08",
-  end_date: "2018-03-19",
+  start_date: Date.new(2018,1,8),
+  end_date: Date.new(2018,3,19),
   teaching_set: defense3
   )
 
 defense3_spring = ReportCycle.create!(
   name: "Spring Term",
-  start_date: "2018-03-20",
-  end_date: "2018-06-20",
+  start_date: Date.new(2018,3,20),
+  end_date: Date.new(2018,6,20),
   teaching_set: defense3
   )
 
 defense3_summer = ReportCycle.create!(
   name: "Summer Term",
-  start_date: "2018-06-21",
-  end_date: "2018-09-22",
+  start_date: Date.new(2018,6,21),
+  end_date: Date.new(2018,9,22),
   teaching_set: defense3
   )
+defense3_summer_weeks = ((defense3_summer.end_date-defense3_summer.start_date)/7).round
 
 defense3_fall = ReportCycle.create!(
   name: "Fall Term",
-  start_date: "2018-09-23",
-  end_date: "2018-12-21",
+  start_date: Date.new(2018,9,23),
+  end_date: Date.new(2018,12,21),
   teaching_set: defense3
   )
 
@@ -660,89 +665,132 @@ puts "Seeding lessons..."
 
 # LESSONS - LE WAGON
 
-lewagon_week = Lesson.create!(
-  start_time: "09:00",
-  end_time: "18:30",
-  weekday: [1,2,3,4,5],
-  report_cycle: lewagon_total,
-  teaching_set: lewagon
-  )
+# lewagon_total_weeks.times do |num|
+#   Lesson.create!(
+#     start_time: DateTime.new(2018,7,2,9,00) + num * 7,
+#     end_time: DateTime.new(2018,7,2,18,30) + num * 7,
+#     report_cycle: lewagon_total,
+#     teaching_set: lewagon
+#     )
+
+#   Lesson.create!(
+#     start_time: DateTime.new(2018,7,3,9,00) + num * 7,
+#     end_time: DateTime.new(2018,7,3,18,30) + num * 7,
+#     report_cycle: lewagon_total,
+#     teaching_set: lewagon
+#     )
+
+#   Lesson.create!(
+#     start_time: DateTime.new(2018,7,4,9,00) + num * 7,
+#     end_time: DateTime.new(2018,7,4,18,30) + num * 7,
+#     report_cycle: lewagon_total,
+#     teaching_set: lewagon
+#     )
+
+#   Lesson.create!(
+#     start_time: DateTime.new(2018,7,5,9,00) + num * 7,
+#     end_time: DateTime.new(2018,7,5,18,30) + num * 7,
+#     report_cycle: lewagon_total,
+#     teaching_set: lewagon
+#     )
+
+#   Lesson.create!(
+#     start_time: DateTime.new(2018,7,6,9,00) + num * 7,
+#     end_time: DateTime.new(2018,7,6,18,30) + num * 7,
+#     report_cycle: lewagon_total,
+#     teaching_set: lewagon
+#     )
+# end
 
 
-# LESSONS - POTIONS 5
+# LESSONS - POTIONS 5 (13 weeks)
 
-potions5_tuesday = Lesson.create!(
-  start_time: "10:00",
-  end_time: "11:30",
-  weekday: [2],
-  report_cycle: potions5_summer,
-  teaching_set: potions5
-  )
+potions5_summer_weeks.times do |num|
+  Lesson.create!(
+    start_time: DateTime.new(2018,6,26,11,00) + num * 7,
+    end_time: DateTime.new(2018,6,26,12,30) + num * 7,
+    report_cycle: potions5_summer,
+    teaching_set: potions5
+    )
 
-potions5_friday = Lesson.create!(
-  start_time: "17:00",
-  end_time: "20:00",
-  weekday: [5],
-  report_cycle: potions5_summer,
-  teaching_set: potions5
-  )
+  Lesson.create!(
+    start_time: DateTime.new(2018,6,29,17,00) + num * 7,
+    end_time: DateTime.new(2018,6,29,20,00) + num * 7,
+    report_cycle: potions5_summer,
+    teaching_set: potions5
+    )
+end
 
 
 # LESSONS - POTIONS 7
 
-potions7_monday = Lesson.create!(
-  start_time: "08:00",
-  end_time: "09:30",
-  weekday: [1,4],
-  report_cycle: potions7_summer,
-  teaching_set: potions7
-  )
+potions7_summer_weeks.times do |num|
+  Lesson.create!(
+    start_time: DateTime.new(2018,6,25,9,00) + num * 7,
+    end_time: DateTime.new(2018,6,25,10,30) + num * 7,
+    report_cycle: potions7_summer,
+    teaching_set: potions7
+    )
 
-potions7_friday = Lesson.create!(
-  start_time: "14:00",
-  end_time: "15:30",
-  weekday: [5],
-  report_cycle: potions7_summer,
-  teaching_set: potions7
-  )
+  Lesson.create!(
+    start_time: DateTime.new(2018,6,28,9,00) + num * 7,
+    end_time: DateTime.new(2018,6,28,10,30) + num * 7,
+    report_cycle: potions7_summer,
+    teaching_set: potions7
+    )
+
+  Lesson.create!(
+    start_time: DateTime.new(2018,6,29,14,00) + num * 7,
+    end_time: DateTime.new(2018,6,29,15,30) + num * 7,
+    report_cycle: potions7_summer,
+    teaching_set: potions7
+    )
+end
 
 
 # LESSONS - DEFENSE 5
 
-defense5_monday = Lesson.create!(
-  start_time: "10:00",
-  end_time: "11:30",
-  weekday: [1],
-  report_cycle: defense5_summer,
-  teaching_set: defense5
-  )
+defense5_summer_weeks.times do |num|
+  Lesson.create!(
+    start_time: DateTime.new(2018,6,25,11,00) + num * 7,
+    end_time: DateTime.new(2018,6,25,12,30) + num * 7,
+    report_cycle: defense5_summer,
+    teaching_set: defense5
+    )
 
-defense5_thursday = Lesson.create!(
-  start_time: "13:00",
-  end_time: "14:30",
-  weekday: [2,4],
-  report_cycle: defense5_summer,
-  teaching_set: defense5
-  )
+  Lesson.create!(
+    start_time: DateTime.new(2018,6,26,14,00) + num * 7,
+    end_time: DateTime.new(2018,6,26,15,30) + num * 7,
+    report_cycle: defense5_summer,
+    teaching_set: defense5
+    )
+
+  Lesson.create!(
+    start_time: DateTime.new(2018,6,28,14,00) + num * 7,
+    end_time: DateTime.new(2018,6,28,15,30) + num * 7,
+    report_cycle: defense5_summer,
+    teaching_set: defense5
+    )
+end
 
 
 # LESSONS - DEFENSE 3
 
-defense3_wednesday = Lesson.create!(
-  start_time: "10:00",
-  end_time: "13:00",
-  weekday: [3],
-  report_cycle: defense3_summer,
-  teaching_set: defense3
-  )
+defense3_summer_weeks.times do |num|
+  Lesson.create!(
+    start_time: DateTime.new(2018,6,27,11,00) + num * 7,
+    end_time: DateTime.new(2018,6,27,14,00) + num * 7,
+    report_cycle: defense3_summer,
+    teaching_set: defense3
+    )
 
-defense3_friday = Lesson.create!(
-  start_time: "10:00",
-  end_time: "11:30",
-  weekday: [5],
-  report_cycle: defense3_summer,
-  teaching_set: defense3
-  )
+  Lesson.create!(
+    start_time: DateTime.new(2018,6,29,11,00) + num * 7,
+    end_time: DateTime.new(2018,6,29,12,30) + num * 7,
+    report_cycle: defense3_summer,
+    teaching_set: defense3
+    )
+end
 
 ############################################################################################
 
@@ -773,7 +821,6 @@ Task.all.each do |task|
     "hello"
   end
 end
-
 
 Lesson.all.each { |l| l.save! }
 ReportCycle.all.each { |rc| rc.save! }

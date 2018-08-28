@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row lesson-navigation">
-    <div id="font-larger">
-      <%= link_to "All Lessons", teaching_set_lessons_path(@lesson.teaching_set) %>
-    </div>
+    <%= link_to teaching_set_lessons_path(@lesson.teaching_set) do %>
+      <i class="fas fa-list-ul" id="font-larger"></i>
+    <% end %>
     <div class="text-center" id="lesson-title">
       <h3><%= @lesson.start_time.strftime('%a, %e %b %Y - %H:%M') %></h3>
     </div>
@@ -23,6 +23,13 @@
       <% end %>
     </div>
   </div>
+
+  <div class="row">
+    <div class="lesson-comment-container">
+      <%= render 'lessons/lesson_comment_form', lesson: @lesson %>
+    </div>
+  </div>
+
   <div class="row">
     <% @lesson.scores.sort_by {|score| score.set_pupil.pupil.last_name }.each do |score| %>
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
@@ -38,7 +45,6 @@
           <div id=<%= "plus_score_form_score_#{score.id}" %>>
             <%= render 'lessons/plus_form', score: score %>
           </div>
-
         </div>
         <div id="score-container">
           <p class="score" id=<%= "score_#{score.id}" %>><%= score.value %></p>
