@@ -34,7 +34,7 @@ class EventsController < ApplicationController
 
     @events_ts = @teaching_set.lessons.map do |l|
       {
-        title: "#{l.teaching_set.year_group}, #{l.teaching_set.subject}",
+        title: "#{l.teaching_set.year_group}, #{l.teaching_set.subject} #{(l.comment) if l.comment}",
         start: "#{l.start_time.strftime('%H:%M:%S')}",
         end: "#{l.end_time.strftime('%H:%M:%S')}",
         dow: l.weekday,
