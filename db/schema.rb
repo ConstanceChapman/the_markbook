@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_28_090430) do
+ActiveRecord::Schema.define(version: 2018_08_28_102109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 2018_08_28_090430) do
     t.bigint "teaching_set_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "weekday", default: [], array: true
     t.bigint "report_cycle_id"
     t.string "comment"
     t.index ["report_cycle_id"], name: "index_lessons_on_report_cycle_id"
@@ -49,8 +48,8 @@ ActiveRecord::Schema.define(version: 2018_08_28_090430) do
 
   create_table "report_cycles", force: :cascade do |t|
     t.string "name"
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.date "start_date"
+    t.date "end_date"
     t.bigint "teaching_set_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
