@@ -16,7 +16,6 @@ class EventsController < ApplicationController
         url: "teaching_sets/#{l.teaching_set.id}/lessons/#{l.id}"
       }
     end
-
   end
 
   def filtered_index

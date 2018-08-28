@@ -47,8 +47,8 @@ puts "Seeding teaching-sets..."
 # lewagon = TeachingSet.new(
 #   subject: "Le Wagon",
 #   year_group: "Batch 164",
-#   start_date: "2018-07-02",
-#   end_date: "2018-08-31",
+#   start_date: Date.new(2018,7,2),
+#   end_date: Date.new(2018,8,31),
 #   user: user1,
 #   color: "#5FCC9C" #$green
 #   )
@@ -57,8 +57,8 @@ puts "Seeding teaching-sets..."
 potions5 = TeachingSet.new(
   subject: "Potions",
   year_group: "Year 5",
-  start_date: "2018-01-08",
-  end_date: "2018-12-21",
+  start_date: Date.new(2018,1,8),
+  end_date: Date.new(2018,12,21),
   user: user2,
   color: "#215B63" #$dark-green
   )
@@ -67,8 +67,8 @@ potions5.save!
 potions7 = TeachingSet.new(
   subject: "Potions",
   year_group: "Year 7",
-  start_date: "2018-01-08",
-  end_date: "2018-12-21",
+  start_date: Date.new(2018,1,8),
+  end_date: Date.new(2018,12,21),
   user: user2,
   color: "#5FCC9C" #$green
   )
@@ -77,8 +77,8 @@ potions7.save!
 defense5 = TeachingSet.new(
   subject: "Defense Against The Dark Arts",
   year_group: "Year 5",
-  start_date: "2018-01-08",
-  end_date: "2018-12-21",
+  start_date: Date.new(2018,1,8),
+  end_date: Date.new(2018,12,21),
   user: user2,
   color: "#232855" #$dark-blue
   )
@@ -87,8 +87,8 @@ defense5.save!
 defense3 = TeachingSet.new(
   subject: "Defense Against The Dark Arts",
   year_group: "Year 3",
-  start_date: "2018-01-08",
-  end_date: "2018-12-21",
+  start_date: Date.new(2018,1,8),
+  end_date: Date.new(2018,12,21),
   user: user2,
   color: "#469AE0" #$blue
   )
