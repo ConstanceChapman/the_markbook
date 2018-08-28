@@ -28,7 +28,7 @@ class Task < ApplicationRecord
   end
 
   def return_report_cycle
-    date = Time.now
+    date = self.created_at ? self.created_at : Time.now
     report_cycle = ReportCycle.where("start_date <= ? AND end_date >= ? AND teaching_set_id = ?", date, date, teaching_set_id).first
     self.report_cycle_id = report_cycle.id
   end
