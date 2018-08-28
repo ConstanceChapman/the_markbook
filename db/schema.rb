@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_27_130953) do
+ActiveRecord::Schema.define(version: 2018_08_28_101635) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,6 +92,8 @@ ActiveRecord::Schema.define(version: 2018_08_27_130953) do
     t.bigint "teaching_set_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "report_cycle_id"
+    t.index ["report_cycle_id"], name: "index_tasks_on_report_cycle_id"
     t.index ["teaching_set_id"], name: "index_tasks_on_teaching_set_id"
   end
 
@@ -133,6 +135,7 @@ ActiveRecord::Schema.define(version: 2018_08_27_130953) do
   add_foreign_key "scores", "set_pupils"
   add_foreign_key "set_pupils", "pupils"
   add_foreign_key "set_pupils", "teaching_sets"
+  add_foreign_key "tasks", "report_cycles"
   add_foreign_key "tasks", "teaching_sets"
   add_foreign_key "teaching_sets", "users"
 end

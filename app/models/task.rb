@@ -15,6 +15,7 @@ class Task < ApplicationRecord
   has_many :marks, dependent: :destroy
   validates :title, presence: true, uniqueness: { scope: :teaching_set }
 
+  before_save :return_report_cycle
   after_save :make_pupil_marks
 
   def make_pupil_marks
@@ -24,5 +25,11 @@ class Task < ApplicationRecord
         set_pupil: set_pupil
         )
     end
+  end
+
+  def return_report_cycle
+    date = Time.now
+    report_cycle = ReportCycle.where("start_date <= ? AND end_date >= ? AND teaching_set_id = ?", date, date, teaching_set_id).first
+    self.report_cycle_id = report_cycle.id
   end
 end

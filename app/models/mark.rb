@@ -15,6 +15,7 @@ class Mark < ApplicationRecord
   belongs_to :task
   belongs_to :set_pupil
   validates :set_pupil, uniqueness: { scope: :task }
+  # after_save :update_report
 
   include Comparable
 
@@ -30,4 +31,8 @@ class Mark < ApplicationRecord
   def <=>(other)
     raw_mark <=> other.raw_mark
   end
+
+  # def update_report
+  #   task.report_cycle.report.update_stats
+  # end
 end

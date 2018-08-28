@@ -24,33 +24,33 @@ class SetPupilDecorator < Draper::Decorator
     end
   end
 
-  def average_mark(report_cycle)
-    report_cycle_marks = get_valid_marks(report_cycle)
-    return 0 if report_cycle_marks.length < 1
-    percentages = report_cycle_marks.map(&:percentage)
-    average = percentages.reduce(:+) / (report_cycle_marks.length).to_f
-    return average.round(1)
-  end
+  # def average_mark(report_cycle)
+  #   report_cycle_marks = get_valid_marks(report_cycle)
+  #   return 0 if report_cycle_marks.length < 1
+  #   percentages = report_cycle_marks.map(&:percentage)
+  #   average = percentages.reduce(:+) / (report_cycle_marks.length).to_f
+  #   return average.round(1)
+  # end
 
-  def top_mark(report_cycle)
-    report_cycle_marks = get_valid_marks(report_cycle)
-    top = report_cycle_marks.sort_by! { |mark| mark.percentage }.last
-    return {
-      task: "#{top.task.title}",
-      percentage: top.percentage,
-      raw: "#{top.raw_mark}/#{top.task.max_mark}"
-    }
-  end
+  # def top_mark(report_cycle)
+  #   report_cycle_marks = get_valid_marks(report_cycle)
+  #   top = report_cycle_marks.sort_by! { |mark| mark.percentage }.last
+  #   return {
+  #     task: "#{top.task.title}",
+  #     percentage: top.percentage,
+  #     raw: "#{top.raw_mark}/#{top.task.max_mark}"
+  #   }
+  # end
 
-  def bottom_mark(report_cycle)
-    report_cycle_marks = get_valid_marks(report_cycle)
-    bottom = report_cycle_marks.sort_by! { |mark| mark.percentage }.first
-    return {
-      task: "#{bottom.task.title}",
-      percentage: bottom.percentage,
-      raw: "#{bottom.raw_mark}/#{bottom.task.max_mark}"
-    }
-  end
+  # def bottom_mark(report_cycle)
+  #   report_cycle_marks = get_valid_marks(report_cycle)
+  #   bottom = report_cycle_marks.sort_by! { |mark| mark.percentage }.first
+  #   return {
+  #     task: "#{bottom.task.title}",
+  #     percentage: bottom.percentage,
+  #     raw: "#{bottom.raw_mark}/#{bottom.task.max_mark}"
+  #   }
+  # end
 
   def get_mark_stats(report_cycle)
     report_cycle_marks = get_valid_marks(report_cycle)
