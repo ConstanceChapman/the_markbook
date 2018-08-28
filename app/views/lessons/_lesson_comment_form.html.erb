@@ -1,4 +1,4 @@
-<%= simple_form_for(teaching_set_lesson_path(lesson), remote: true, html: {id: "lesson-comment-form"}) do |f| %>
+<%= simple_form_for(lesson, remote: true, html: {id: "lesson-comment-form"}) do |f| %>
   <%= f.input :comment, label: false, class: "form-control", id: "lesson-form", placeholder: "Anything to remember about this lesson?" %>
 <% end %>
 

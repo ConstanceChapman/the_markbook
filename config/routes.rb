@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     get 'events', to: 'events#filtered_index', defaults: { format: :json }
   end
 
+  resources :lessons, only: [:update]
+
   resources :scores, only: [:update]
   resources :tasks, only: [:update, :destroy]
   resources :marks, only: [:create, :update]
