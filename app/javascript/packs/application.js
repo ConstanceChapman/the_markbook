@@ -19,12 +19,12 @@ document.addEventListener("DOMContentLoaded",function(){
       center: 'title',
       right: 'agendaDay,agendaWeek,month',
     },
+    defaultView: 'agendaDay',
     minTime: "08:00:00",
     maxTime: "20:00:00",
     weekends: false,
     allDaySlot: false,
     nowIndicator: true,
-    defaultView: 'agendaDay',
     events: "/events",
     eventClick: function(event) {
       window.open(event.url, "_self");
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded",function(){
   })
 })
 
-document.addEventListener("DOMContentLoaded",function(){
+document.addEventListener("DOMContentLoaded",function(event){
   var calendar_list = $('#calendar-list')
   calendar_list.fullCalendar({
     height: 550,

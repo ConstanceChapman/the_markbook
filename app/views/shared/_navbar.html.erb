@@ -11,7 +11,7 @@
       <div class="dropdown">
         <a href="" class="navbar-wagon-item navbar-wagon-link dropdown-toggle" data-toggle="dropdown">Classes</a>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <% current_user.teaching_sets.each do |teaching_set| %>
+          <% current_user.teaching_sets.sort_by{|ts| ts.year_group}.sort_by{|ts| ts.subject}.each do |teaching_set| %>
             <li>
               <%= link_to teaching_set_tasks_path(teaching_set) do %>
                 <%= teaching_set.year_group %>, <%= teaching_set.subject %>
