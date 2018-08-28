@@ -24,9 +24,6 @@ document.addEventListener("DOMContentLoaded",function(){
     allDaySlot: false,
     nowIndicator: true,
     defaultView: 'agendaDay',
-    // selectable: true,
-    // selectHelper: true,
-    // eventLimit: true,
     events: "/events",
     eventClick: function(event) {
       window.open(event.url, "_self");
