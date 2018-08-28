@@ -9,15 +9,17 @@
   }
 }
 #font-larger {
-  a {
-    font-size: 20px;
-  }
+  font-size: 23px;
 }
 #lesson-title {
-  flex: 0 0 35%;
+  flex: 0 0 32%;
 }
 #lesson-arrows {
   a:hover {
     text-decoration: none;
   }
+}
+.lesson-comment-container {
+  margin: 20px 0px 15px 0px;
+  padding: 0px 310px;
 }
