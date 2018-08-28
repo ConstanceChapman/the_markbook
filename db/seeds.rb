@@ -60,7 +60,7 @@ potions5 = TeachingSet.new(
   start_date: Date.new(2018,1,8),
   end_date: Date.new(2018,12,21),
   user: user2,
-  color: "#215B63" #$dark-green
+  color: "#215B63" # $dark-green
   )
 potions5.save!
 
@@ -70,7 +70,7 @@ potions7 = TeachingSet.new(
   start_date: Date.new(2018,1,8),
   end_date: Date.new(2018,12,21),
   user: user2,
-  color: "#5FCC9C" #$green
+  color: "#5FCC9C" # $green
   )
 potions7.save!
 
@@ -80,7 +80,7 @@ defense5 = TeachingSet.new(
   start_date: Date.new(2018,1,8),
   end_date: Date.new(2018,12,21),
   user: user2,
-  color: "#232855" #$dark-blue
+  color: "#232855" # $dark-blue
   )
 defense5.save!
 
@@ -90,7 +90,7 @@ defense3 = TeachingSet.new(
   start_date: Date.new(2018,1,8),
   end_date: Date.new(2018,12,21),
   user: user2,
-  color: "#469AE0" #$blue
+  color: "#469AE0" # $blue
   )
 defense3.save!
 
