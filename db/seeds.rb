@@ -745,6 +745,33 @@ defense3_friday = Lesson.create!(
   teaching_set: defense3
   )
 
+############################################################################################
+
+puts "Seeding tasks..."
+
+# TASKS - YR5 POTIONS
+
+task_titles = ["Mixing test", "Potion quiz", "Bezoar essay", "Felix Felicis", "Sleeping draught",
+  "Practical test", "Ingredients test", "Antidotes essay", "Potions test", "Love Potion quiz",
+  "Ingredients quiz", "Potion essay", "Antidotes quiz", "Stirring clockwise", "Potionmaking"]
+
+task_titles.each do |title|
+  Task.create!(
+    teaching_set: potions5,
+    title: title,
+    max_mark: rand(10..100)
+    )
+end
+
+puts "Seeding marks..."
+
+Task.all.each do |task|
+  task.marks.each do |mark|
+    mark.raw_mark = rand(0..mark.task.max_mark)
+    mark.save!
+  end
+end
+
 
 Lesson.all.each { |l| l.save! }
 ReportCycle.all.each { |rc| rc.save! }

@@ -4,9 +4,7 @@ class SetPupilDecorator < Draper::Decorator
   def get_scores(report_cycle)
     report_cycle_scores = []
     object.scores.each do |score|
-      # puts score.value
-      # puts "#{score.return_report_cycle.name} is equal to #{report_cycle.name}"
-      if score.return_report_cycle == report_cycle
+      if score.lesson.report_cycle == report_cycle
         report_cycle_scores << score
       end
     end
@@ -21,13 +19,9 @@ class SetPupilDecorator < Draper::Decorator
   end
 
   def get_valid_marks(report_cycle)
-    report_cycle_marks = []
-    object.marks.each do |mark|
-      if mark.return_report_cycle == report_cycle && mark.raw_mark.nil? == false
-        report_cycle_marks << mark
-      end
+    object.marks.select do |mark|
+      mark.return_report_cycle == report_cycle && !mark.raw_mark.nil?
     end
-    return report_cycle_marks
   end
 
   def average_mark(report_cycle)
@@ -56,6 +50,37 @@ class SetPupilDecorator < Draper::Decorator
       percentage: bottom.percentage,
       raw: "#{bottom.raw_mark}/#{bottom.task.max_mark}"
     }
+  end
+
+  def get_mark_stats(report_cycle)
+    report_cycle_marks = get_valid_marks(report_cycle)
+    top, bottom = nil, nil
+    count, total = 0, 0
+    report_cycle_marks.each do |mark|
+      top    = mark if !top    || mark.percentage > top.percentage
+      bottom = mark if !bottom || mark.percentage < bottom.percentage
+      count += 1
+      total += mark.percentage
+    end
+    if count > 0
+      average = (total / count).round(1)
+      return {
+        top: {
+          task: "#{top.task.title}",
+          percentage: top.percentage,
+          raw: "#{top.raw_mark}/#{top.task.max_mark}"
+        },
+        bottom: {
+          task: "#{bottom.task.title}",
+          percentage: bottom.percentage,
+          raw: "#{bottom.raw_mark}/#{bottom.task.max_mark}"
+        },
+        average: average,
+        count: count
+      }
+    else
+      return { average: 0, count: 0 }
+    end
   end
 
   def behaviour_comments(report_cycle)

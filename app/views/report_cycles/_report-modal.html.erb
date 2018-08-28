@@ -8,6 +8,7 @@
       </div>
       <div class="modal-body">
         <% pupil = report.set_pupil.decorate %>
+        <% stats = pupil.get_mark_stats(report.report_cycle) %>
         <h3><%= "#{report.set_pupil.pupil.first_name} #{report.set_pupil.pupil.last_name}" %></h3>
         <div class="report-behaviour bottom-border">
           <% if pupil.average_score(report.report_cycle) == 0 %>
@@ -49,7 +50,7 @@
           <% end %>
         </div>
         <div class="report-marks bottom-border">
-          <% if pupil.get_valid_marks(report.report_cycle).length < 1 %>
+          <% if stats[:count] < 1 %>
             <p>No marks recorded</p>
           <% else %>
             <div class="mark-box red-mb">
@@ -59,9 +60,9 @@
                 </div>
               </div>
               <div class="stats text-center">
-                <% stats = pupil.bottom_mark(report.report_cycle) %>
-                <p><%= stats[:task] %></p>
-                <p><%= "#{stats[:percentage]}% (#{stats[:raw]})" %></p>
+                <% bottom_stats = stats[:bottom] %>
+                <p><%= bottom_stats[:task] %></p>
+                <p><%= "#{bottom_stats[:percentage]}% (#{bottom_stats[:raw]})" %></p>
               </div>
               <div class="mark-box-banner" id="red-mb-banner">
                 <p>BOTTOM MARK</p>
@@ -74,7 +75,7 @@
                 </div>
               </div>
               <div class="average-mark text-center">
-                <p><%= pupil.average_mark(report.report_cycle) %>%</p>
+                <p><%= stats[:average] %>%</p>
               </div>
               <div class="mark-box-banner" id="blue-mb-banner">
                 <p>AVERAGE MARK</p>
@@ -87,9 +88,9 @@
                 </div>
               </div>
               <div class="stats text-center">
-                <% stats = pupil.top_mark(report.report_cycle) %>
-                <p><%= stats[:task] %></p>
-                <p><%= "#{stats[:percentage]}% (#{stats[:raw]})" %></p>
+                <% top_stats = stats[:top] %>
+                <p><%= top_stats[:task] %></p>
+                <p><%= "#{top_stats[:percentage]}% (#{top_stats[:raw]})" %></p>
               </div>
               <div class="mark-box-banner" id="green-mb-banner">
                 <p>TOP MARK</p>
