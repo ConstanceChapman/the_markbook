@@ -12,6 +12,7 @@
 
 class Task < ApplicationRecord
   belongs_to :teaching_set
+  belongs_to :report_cycle
   has_many :marks, dependent: :destroy
   validates :title, presence: true, uniqueness: { scope: :teaching_set }
 
