@@ -1,0 +1,6 @@
+meta_product_name: "The Markbook"
+meta_title: "The Markbook - Report writing made easy"
+meta_description: "The Markbook is a user-friendly interface that allows you to store your data in seconds.
+When report deadlines loom, the app summarises all of your key data and presents it in a digestable format,
+making report-writing a breeze."
+meta_image: "classroom.jpg"                       # should exist in `app/assets/images/`
