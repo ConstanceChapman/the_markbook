@@ -49,7 +49,7 @@
           <% end %>
         </div>
         <div class="report-marks bottom-border">
-          <% if pupil.get_valid_marks(report.report_cycle).length < 1 %>
+          <% if !report.average_mark %>
             <p>No marks recorded</p>
           <% else %>
             <div class="mark-box red-mb">
@@ -59,9 +59,9 @@
                 </div>
               </div>
               <div class="stats text-center">
-                <% stats = pupil.bottom_mark(report.report_cycle) %>
-                <p><%= stats[:task] %></p>
-                <p><%= "#{stats[:percentage]}% (#{stats[:raw]})" %></p>
+                <% bottom = report.bottom_mark %>
+                <p><%= bottom.task.title %></p>
+                <p><%= "#{bottom.percentage}% (#{bottom.raw_mark} / #{bottom.task.max_mark})" %></p>
               </div>
               <div class="mark-box-banner" id="red-mb-banner">
                 <p>BOTTOM MARK</p>
@@ -74,7 +74,7 @@
                 </div>
               </div>
               <div class="average-mark text-center">
-                <p><%= pupil.average_mark(report.report_cycle) %>%</p>
+                <p><%= report.average_mark %>%</p>
               </div>
               <div class="mark-box-banner" id="blue-mb-banner">
                 <p>AVERAGE MARK</p>
@@ -87,9 +87,9 @@
                 </div>
               </div>
               <div class="stats text-center">
-                <% stats = pupil.top_mark(report.report_cycle) %>
-                <p><%= stats[:task] %></p>
-                <p><%= "#{stats[:percentage]}% (#{stats[:raw]})" %></p>
+                <% top = report.top_mark %>
+                <p><%= top.task.title %></p>
+                <p><%= "#{top.percentage}% (#{top.raw_mark} / #{top.task.max_mark})" %></p>
               </div>
               <div class="mark-box-banner" id="green-mb-banner">
                 <p>TOP MARK</p>

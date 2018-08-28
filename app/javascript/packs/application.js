@@ -11,6 +11,7 @@ if (document.getElementById('side-panel')) {
 
 document.addEventListener("DOMContentLoaded",function(){
   var calendar = $('#calendar')
+
   calendar.fullCalendar({
     height: 650,
     header: {
