@@ -8,7 +8,6 @@
       </div>
       <div class="modal-body">
         <% pupil = report.set_pupil.decorate %>
-        <% stats = pupil.get_mark_stats(report.report_cycle) %>
         <h3><%= "#{report.set_pupil.pupil.first_name} #{report.set_pupil.pupil.last_name}" %></h3>
         <div class="report-behaviour bottom-border">
           <% if pupil.average_score(report.report_cycle) == 0 %>
@@ -50,7 +49,7 @@
           <% end %>
         </div>
         <div class="report-marks bottom-border">
-          <% if stats[:count] < 1 %>
+          <% if !report.average_mark %>
             <p>No marks recorded</p>
           <% else %>
             <div class="mark-box red-mb">
@@ -60,9 +59,9 @@
                 </div>
               </div>
               <div class="stats text-center">
-                <% bottom_stats = stats[:bottom] %>
-                <p><%= bottom_stats[:task] %></p>
-                <p><%= "#{bottom_stats[:percentage]}% (#{bottom_stats[:raw]})" %></p>
+                <% bottom = report.bottom_mark %>
+                <p><%= bottom.task.title %></p>
+                <p><%= "#{bottom.percentage}% (#{bottom.raw_mark} / #{bottom.task.max_mark})" %></p>
               </div>
               <div class="mark-box-banner" id="red-mb-banner">
                 <p>BOTTOM MARK</p>
@@ -75,7 +74,7 @@
                 </div>
               </div>
               <div class="average-mark text-center">
-                <p><%= stats[:average] %>%</p>
+                <p><%= report.average_mark %>%</p>
               </div>
               <div class="mark-box-banner" id="blue-mb-banner">
                 <p>AVERAGE MARK</p>
@@ -88,9 +87,9 @@
                 </div>
               </div>
               <div class="stats text-center">
-                <% top_stats = stats[:top] %>
-                <p><%= top_stats[:task] %></p>
-                <p><%= "#{top_stats[:percentage]}% (#{top_stats[:raw]})" %></p>
+                <% top = report.top_mark %>
+                <p><%= top.task.title %></p>
+                <p><%= "#{top.percentage}% (#{top.raw_mark} / #{top.task.max_mark})" %></p>
               </div>
               <div class="mark-box-banner" id="green-mb-banner">
                 <p>TOP MARK</p>

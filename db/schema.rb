@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_28_102635) do
+ActiveRecord::Schema.define(version: 2018_08_28_125734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 2018_08_28_102635) do
     t.bigint "top_mark_id"
     t.bigint "bottom_mark_id"
     t.float "average_mark"
+    t.integer "mark_count", default: 0
     t.index ["bottom_mark_id"], name: "index_reports_on_bottom_mark_id"
     t.index ["report_cycle_id"], name: "index_reports_on_report_cycle_id"
     t.index ["set_pupil_id"], name: "index_reports_on_set_pupil_id"
