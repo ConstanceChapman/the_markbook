@@ -1,4 +1,4 @@
-require 'pry-byebug'
+
 # == Schema Information
 #
 # Table name: reports
@@ -34,7 +34,6 @@ class Report < ApplicationRecord
   end
   # def update_report(mark)
   #   report_cycle_marks = report_cycle.marks
-  #   binding.pry
   #   # top, bottom = nil, nil
   #   count, total = 0, 0
   #   report_cycle_marks.each do |mark|
