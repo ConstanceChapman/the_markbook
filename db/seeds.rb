@@ -817,8 +817,6 @@ Task.all.each do |task|
   task.marks.each do |mark|
     mark.raw_mark = rand(0..task.max_mark)
     mark.save!
-    binding.pry if mark.raw_mark.nil?
-    "hello"
   end
 end
 
