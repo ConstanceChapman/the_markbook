@@ -12,14 +12,14 @@ class SetPupilDecorator < Draper::Decorator
   # end
 
   def average_score(report_cycle)
-    report_cycle_scores = report_cycle.scores
+    report_cycle_scores = report_cycle.scores.where(set_pupil: object)
     return 0 if report_cycle_scores.length < 1
     average = (report_cycle_scores.map(&:value).reduce(:+)) / (report_cycle_scores.length).to_f
     return average.round(1)
   end
 
   def behaviour_comments(report_cycle)
-    report_cycle_scores = report_cycle.scores
+    report_cycle_scores = report_cycle.scores.where(set_pupil: object)
     comments = []
     report_cycle_scores.each do |score|
       comments << score if score.comment
