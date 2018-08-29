@@ -99,24 +99,24 @@
         </div>
           <% if pupil.behaviour_comments(report.report_cycle).length > 0 %>
           <div class="comments">
-            <p><strong>Lesson comments:</strong><br>
+            <p><strong>Lesson comments:</strong></p>
               <% pupil.behaviour_comments(report.report_cycle).each do |score| %>
-                <%= "#{score.comment} - " %><%= link_to teaching_set_lesson_path(score.lesson.teaching_set.id, score.lesson.id) do %>
+                <p class="bottom-border"><%= "#{score.comment} - " %><%= link_to teaching_set_lesson_path(score.lesson.teaching_set.id, score.lesson.id) do %>
                   <% if score.lesson.comment %>
                     <%= "#{score.lesson.comment} (#{score.lesson.start_time.strftime('%a, %e %b')})" %><br>
                   <% else %>
                    <%= "(#{score.lesson.start_time.strftime('%a, %e %b')})" %> <br>
                   <% end %>
                 <% end %>
+                </p>
               <% end %>
-            </p>
           </div>
           <% end %>
           <% if pupil.academic_comments(report.report_cycle).length > 0 %>
           <div class="comments">
-            <p><strong>Markbook comments:</strong><br>
+            <p><strong>Markbook comments:</strong></p>
               <% pupil.academic_comments(report.report_cycle).each do |mark| %>
-                <%= "#{mark.task.title} (#{mark.percentage}%): #{mark.comment}" %><br>
+                <p><%= "#{mark.task.title} (#{mark.percentage}%): #{mark.comment}" %><br>
               <% end %>
             </p>
           </div>
