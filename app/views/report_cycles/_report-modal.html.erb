@@ -112,11 +112,13 @@
               <% end %>
           </div>
           <% end %>
-          <% if pupil.academic_comments(report.report_cycle).length > 0 %>
+          <% if report.mark_count > 0 %>
           <div class="comments">
             <p><strong>Markbook comments:</strong></p>
-              <% pupil.academic_comments(report.report_cycle).each do |mark| %>
-                <p class="bottom-border"><%= "#{mark.task.title} (#{mark.percentage}%): #{mark.comment}" %><br>
+              <% report.set_pupil.marks.each do |mark| %>
+                <% if mark.comment %>
+                  <p class="bottom-border"><%= "#{mark.task.title} (#{mark.percentage}%): #{mark.comment}" %><br>
+                <% end %>
               <% end %>
             </p>
           </div>
