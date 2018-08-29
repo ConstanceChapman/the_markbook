@@ -14,7 +14,7 @@ class Task < ApplicationRecord
   belongs_to :teaching_set
   belongs_to :report_cycle
   has_many :marks
-  validates :title, presence: true, uniqueness: { scope: :teaching_set }
+  validates :title, presence: true, uniqueness: { scope: :teaching_set }, length: { maximum: 18 }
 
   before_validation :set_report_cycle
   after_create :make_pupil_marks
