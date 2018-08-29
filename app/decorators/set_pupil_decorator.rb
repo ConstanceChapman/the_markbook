@@ -28,7 +28,7 @@ class SetPupilDecorator < Draper::Decorator
   end
 
   def academic_comments(report_cycle)
-    report_cycle_marks = report_cycle.marks
+    report_cycle_marks = report_cycle.marks.where(set_pupil: object)
     comments = []
     report_cycle_marks.each do |mark|
       comments << mark if mark.comment != nil
