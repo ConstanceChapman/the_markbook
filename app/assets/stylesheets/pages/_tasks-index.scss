@@ -1,14 +1,3 @@
-body {
-  min-width: 100vw;
-  overflow-x: hidden;
-}
-
-#wrapper {
-  margin: 0 auto;
-  position: relative;
-  width: 100vw;
-}
-
 .markbook-container {
   display: flex;
   align-items: flex-start;
@@ -17,9 +6,9 @@ body {
 }
 
 #markbook-pupil {
-  line-height: 39px;
   margin-top: 0;
   margin-bottom: 12.5px;
+  line-height: 39px;
 }
 
 .pupils-column {
@@ -31,7 +20,7 @@ body {
 
 .markbook-column {
   min-width: 200px;
-  padding-left: 20px;
+  margin-left: 20px;
 }
 
 .marks-index {
@@ -53,8 +42,4 @@ body {
   a {
     margin-top: 8px;
   }
-}
-
-#mark-div {
-  width: 100%;
 }
