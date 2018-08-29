@@ -1,32 +1,34 @@
-<div class="markbook-container">
-  <div class="pupils-column">
-    <% @teaching_set.set_pupils.sort_by { |set_pupil| set_pupil.pupil.last_name }.each do |set_pupil| %>
-      <p id="markbook-pupil"><%= set_pupil.pupil.first_name %> <%= set_pupil.pupil.last_name %></p>
-    <% end %>
-  </div>
-  <div class="marks-index" id="marks-index">
-    <% @result_hash.keys.sort_by { |task| task.created_at}.each do |task| %>
-      <%= render "tasks/edit-modal", task: task %>
-      <%= render "tasks/task_column", task: task, marks: @result_hash[task] %>
-    <% end %>
-  </div>
-
-  <div class="circle-container">
-    <div class="plus-circle" id="show-form">
-      <i class="fas fa-plus"></i>
+<div id="wrapper">
+  <div class="markbook-container">
+    <div class="pupils-column">
+      <% @teaching_set.set_pupils.sort_by { |set_pupil| set_pupil.pupil.last_name }.each do |set_pupil| %>
+        <p id="markbook-pupil"><%= set_pupil.pupil.first_name %> <%= set_pupil.pupil.last_name %></p>
+      <% end %>
     </div>
-  </div>
+    <div class="marks-index" id="marks-index">
+      <% @result_hash.keys.sort_by { |task| task.created_at}.each do |task| %>
+        <%= render "tasks/edit-modal", task: task %>
+        <%= render "tasks/task_column", task: task, marks: @result_hash[task] %>
+      <% end %>
+    </div>
 
-  <div class="cd-panel cd-panel--from-right js-cd-panel-main" id="side-panel">
-     <header class="cd-panel__header">
-        <h3>Add new task</h3>
-     </header>
+    <div class="circle-container">
+      <div class="plus-circle" id="show-form">
+        <i class="fas fa-plus"></i>
+      </div>
+    </div>
 
-     <div class="cd-panel__container">
-        <div class="cd-panel__content" id="new_task">
-          <%= render 'tasks/create_form', teaching_set: @teaching_set, task: @task %>
-        </div>
-     </div>
+    <div class="cd-panel cd-panel--from-right js-cd-panel-main" id="side-panel">
+       <header class="cd-panel__header">
+          <h3>Add new task</h3>
+       </header>
+
+       <div class="cd-panel__container">
+          <div class="cd-panel__content" id="new_task">
+            <%= render 'tasks/create_form', teaching_set: @teaching_set, task: @task %>
+          </div>
+       </div>
+    </div>
   </div>
 </div>
 

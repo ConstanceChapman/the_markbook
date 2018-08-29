@@ -32,12 +32,17 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-    @task.update(task_params)
+    @task.update!(task_params)
     redirect_to teaching_set_tasks_path(@task.teaching_set)
   end
 
   def destroy
     @task = Task.find(params[:id])
+    @task.marks.each do |mark|
+      mark.top_report.remove_from_consideration(mark)    if mark.top_report
+      mark.bottom_report.remove_from_consideration(mark) if mark.bottom_report
+      mark.destroy
+    end
     @task.destroy
     redirect_to teaching_set_tasks_path(@task.teaching_set)
   end

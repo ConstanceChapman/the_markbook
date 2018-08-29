@@ -21,45 +21,28 @@ class Report < ApplicationRecord
 
   def update_report(mark)
     if mark.raw_mark
-      self.top_mark    = mark if !top_mark    || mark > top_mark
-      self.bottom_mark = mark if !bottom_mark || mark < bottom_mark
-      self.mark_count += 1
-      if average_mark
-        self.average_mark = ((self.average_mark * (self.mark_count - 1) + mark.percentage) / self.mark_count).round(1)
-      else
-        self.average_mark = mark.percentage
-      end
+      self.top_mark    = mark if !top_mark    || mark.percentage > top_mark.percentage
+      self.bottom_mark = mark if !bottom_mark || mark.percentage < bottom_mark.percentage
+      self.mark_count = self.set_pupil.marks.length
+      compute_average_mark
       save
     end
   end
-  # def update_report(mark)
-  #   report_cycle_marks = report_cycle.marks
-  #   # top, bottom = nil, nil
-  #   count, total = 0, 0
-  #   report_cycle_marks.each do |mark|
-  #     self.top_mark    = mark if !top_mark    || mark > top_mark
-  #     self.bottom_mark = mark if !bottom_mark || mark < bottom_mark
-  #     count += 1
-  #     total += mark.percentage
-  #   end
-  #   if count > 0
-  #     self.average = (total / count).round(1)
-  #     # return {
-  #     #   top: {
-  #     #     task: "#{top.task.title}",
-  #     #     percentage: top.percentage,
-  #     #     raw: "#{top.raw_mark}/#{top.task.max_mark}"
-  #     #   },
-  #     #   bottom: {
-  #     #     task: "#{bottom.task.title}",
-  #     #     percentage: bottom.percentage,
-  #     #     raw: "#{bottom.raw_mark}/#{bottom.task.max_mark}"
-  #     #   },
-  #     #   average: average,
-  #     #   count: count
-  #     # }
-  #   # else
-  #   #   return { average: 0, count: 0 }
-  #   end
-  # end
+
+  def remove_from_consideration(mark)
+    puts "removing mark from report"
+    other_marks = self.set_pupil.marks.reject { |other_mark| other_mark.id == mark.id }
+    self.top_mark_id    = other_marks.max_by(&:percentage).id
+    self.bottom_mark_id = other_marks.min_by(&:percentage).id
+    compute_average_mark
+    save
+  end
+
+  private
+
+  def compute_average_mark
+    marks = self.set_pupil.marks.map { |m| m.percentage }.compact
+    total = marks.reduce(:+)
+    self.average_mark = (total / self.mark_count).round(1)
+  end
 end
