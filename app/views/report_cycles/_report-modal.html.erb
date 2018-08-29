@@ -116,7 +116,7 @@
           <div class="comments">
             <p><strong>Markbook comments:</strong></p>
               <% pupil.academic_comments(report.report_cycle).each do |mark| %>
-                <p><%= "#{mark.task.title} (#{mark.percentage}%): #{mark.comment}" %><br>
+                <p class="bottom-border"><%= "#{mark.task.title} (#{mark.percentage}%): #{mark.comment}" %><br>
               <% end %>
             </p>
           </div>
