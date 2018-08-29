@@ -1,7 +1,70 @@
-<div class="homepage">
-  <div class="homepage-content">
-    <h1>The Markbook</h1>
-    <h2>Report-writing made easy</h2>
+<div class="homepage-wrapper-white">
+
+  <div class="homepage">
+    <div class="homepage-content">
+      <%= image_tag "homepage.png", height: "200px", alt: "homepage-logo" %>
+      <h2>Report-writing made easy</h2>
+    </div>
+    <%= link_to "Log In", teaching_sets_path, class: "btn btn-public" %>
   </div>
-    <%= link_to "Get Started", teaching_sets_path, class: "btn btn-markbook home", id: "btn-homepage"  %>
+
+  <div id="report-show">
+    <%= image_tag "screenshots/report.png", width: "950px", alt: "Report-Example" %>
+  </div>
+
+  <div class="wrapper wrapper-green">
+    <div class="container description">
+      <h4 class="text-center">
+        The Markbook is a user-friendly interface that allows you to store your data in seconds. <br>When report deadlines loom, the app summarises all of your key data and presents it in a digestable format, making report-writing a breeze.
+      </h4>
+    </div>
+  </div>
+
+  <div class="demo-box">
+    <div class="view-example">
+      <%= image_tag "screenshots/timetable.png", width: "450px", alt: "Timetable-Example" %>
+    </div>
+    <div class="view-example">
+      <%= image_tag "screenshots/lesson.png", width: "450px", alt: "Lesson-Example" %>
+    </div>
+    <div class="view-example">
+      <%= image_tag "screenshots/marks.png", width: "450px", alt: "Marks-Example" %>
+    </div>
+  </div>
+
+  <div class="demo-box">
+    <div class="view-description text-center">
+      <h5>Navigate through your <strong>timetable</strong></h5>
+    </div>
+    <div class="view-description text-center">
+      <h5>Easily store data for <strong>each lesson</strong></h5>
+    </div>
+    <div class="view-description text-center">
+      <h5>Have your students' <strong>marks</strong> in one place</h5>
+    </div>
+  </div>
+
+  <div class="wrapper wrapper-grey">
+    <div class="container description description-vertical">
+      <h3 class="text-center">Demo Version</h3>
+      <p>Are you curious to experience our product but your school hasn't signed up yet?</p>
+      <span>Try our free <%= link_to "Harry Potter demo profile", teaching_sets_path %>!</span>
+      <p class="font-smaller">(Credentials at the bottom of the link)</p>
+    </div>
+  </div>
+
+  <div class="wrapper wrapper-blue">
+    <div class="footer-links">
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <div class="footer-copyright">
+      This project was made with <i class="fa fa-heart"></i> at Le Wagon
+    </div>
+  </div>
+
 </div>
+
