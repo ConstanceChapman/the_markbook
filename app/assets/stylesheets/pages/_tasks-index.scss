@@ -1,3 +1,14 @@
+body {
+  min-width: 100vw;
+  overflow-x: hidden;
+}
+
+#wrapper {
+  margin: 0 auto;
+  position: relative;
+  width: 100vw;
+}
+
 .markbook-container {
   display: flex;
   align-items: flex-start;
@@ -6,12 +17,13 @@
 }
 
 #markbook-pupil {
+  line-height: 39px;
   margin-top: 0;
-  margin-bottom: 26.5px;
+  margin-bottom: 12.5px;
 }
 
 .pupils-column {
-  margin-top: 112px;
+  margin-top: 107.5px;
   text-align: right;
   min-width: 200px;
   padding: 0 10px;
@@ -19,7 +31,7 @@
 
 .markbook-column {
   min-width: 200px;
-  margin-left: 20px;
+  padding-left: 20px;
 }
 
 .marks-index {
@@ -41,4 +53,8 @@
   a {
     margin-top: 8px;
   }
+}
+
+#mark-div {
+  width: 100%;
 }

@@ -1,3 +1,4 @@
+<div id="wrapper">
 <div class="markbook-container">
   <div class="pupils-column">
     <% @teaching_set.set_pupils.sort_by { |set_pupil| set_pupil.pupil.last_name }.each do |set_pupil| %>
@@ -28,6 +29,7 @@
         </div>
      </div>
   </div>
+</div>
 </div>
 
 

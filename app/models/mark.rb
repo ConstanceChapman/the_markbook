@@ -16,6 +16,8 @@ class Mark < ApplicationRecord
   belongs_to :set_pupil
   validates :set_pupil, uniqueness: { scope: :task }
   after_save :update_report_stats, if: :raw_mark
+  has_one :top_report, class_name: "Report", foreign_key: "top_mark_id"
+  has_one :bottom_report, class_name: "Report", foreign_key: "bottom_mark_id"
 
   include Comparable
 
@@ -28,9 +30,9 @@ class Mark < ApplicationRecord
     ((raw_mark) / (task.max_mark).to_f * 100).round(1) unless raw_mark.nil?
   end
 
-  def <=>(other)
-    percentage <=> other.percentage
-  end
+  # def <=>(other)
+  #   percentage <=> other.percentage
+  # end
 
   def update_report_stats
     reports = self.set_pupil.reports
