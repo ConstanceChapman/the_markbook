@@ -44,7 +44,7 @@ class TasksController < ApplicationController
       mark.destroy
     end
     @task.destroy
-    redirect_to teaching_set_tasks_path(@task.teaching_set)
+    # redirect_to teaching_set_tasks_path(@task.teaching_set)
   end
 
   private

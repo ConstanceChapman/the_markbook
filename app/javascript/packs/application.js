@@ -1,6 +1,8 @@
 import "bootstrap";
 import "fullcalendar";
 import "fullcalendar/dist/fullcalendar.min.css"
+import 'expose-loader?$!jquery';
+import 'expose-loader?jQuery!jquery';
 import { toggleTabClass } from "../components/tabs.js"
 import { toggleSidePanel } from "../components/sidepanel.js"
 import { scrollRight } from "../components/scroll-right.js"

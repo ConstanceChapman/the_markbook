@@ -1,0 +1,21 @@
+function removeTaskColumn(){
+  taskColumn = document.getElementById('<%= "task-column-#{@task.id}" %>');
+  taskColumn.remove();
+}
+
+function hideModal(){
+  editModal = $('#<%= "edit-task#{@task.id}" %>');
+  backdrop = document.querySelector(".modal-backdrop");
+  editModal.modal('hide');
+  $('body').removeClass('modal-open');
+  backdrop.remove();
+}
+
+function removeModal(){
+  editModal = document.getElementById('<%= "edit-task#{@task.id}" %>');
+  editModal.remove();
+}
+
+removeTaskColumn();
+hideModal();
+removeModal();
