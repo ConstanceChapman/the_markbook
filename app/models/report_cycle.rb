@@ -14,6 +14,7 @@
 class ReportCycle < ApplicationRecord
   belongs_to :teaching_set
   has_many :lessons
+  has_many :scores, through: :lessons
   has_many :tasks
   has_many :marks, through: :tasks
   has_many :reports, dependent: :destroy
