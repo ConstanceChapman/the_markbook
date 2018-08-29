@@ -18,16 +18,7 @@ puts "Seeding users..."
 
 # USERS
 
-# user1 = User.new(
-#   email: "connie@gmail.com",
-#   password: "123456",
-#   first_name: "Constance",
-#   last_name: "Chapman",
-#   photo: "teachers/connie.jpeg"
-#   )
-# user1.save!
-
-user2 = User.new(
+user1 = User.new(
   email: "snape@gmail.com",
   password: "123456",
   first_name: "Severus",
@@ -35,7 +26,7 @@ user2 = User.new(
   photo: "teachers/snape.jpg"
 
   )
-user2.save!
+user1.save!
 
 
 ###########################################################
@@ -44,22 +35,32 @@ puts "Seeding teaching-sets..."
 
 # TEACHING-SETS
 
-# lewagon = TeachingSet.new(
-#   subject: "Le Wagon",
-#   year_group: "Batch 164",
-#   start_date: Date.new(2018,7,2),
-#   end_date: Date.new(2018,8,31),
-#   user: user1,
-#   color: "#5FCC9C" #$green
-#   )
-# lewagon.save!
+defense3 = TeachingSet.new(
+  subject: "Defense Against The Dark Arts",
+  year_group: "Year 3",
+  start_date: Date.new(2018,8,27),
+  end_date: Date.new(2019,7,12),
+  user: user1,
+  color: "#469AE0" # $blue
+  )
+defense3.save!
+
+defense5 = TeachingSet.new(
+  subject: "Defense Against The Dark Arts",
+  year_group: "Year 5",
+  start_date: Date.new(2018,8,27),
+  end_date: Date.new(2019,7,12),
+  user: user1,
+  color: "#232855" # $dark-blue
+  )
+defense5.save!
 
 potions5 = TeachingSet.new(
   subject: "Potions",
   year_group: "Year 5",
-  start_date: Date.new(2018,1,8),
-  end_date: Date.new(2018,12,21),
-  user: user2,
+  start_date: Date.new(2018,8,27),
+  end_date: Date.new(2019,7,12),
+  user: user1,
   color: "#215B63" # $dark-green
   )
 potions5.save!
@@ -67,76 +68,17 @@ potions5.save!
 potions7 = TeachingSet.new(
   subject: "Potions",
   year_group: "Year 7",
-  start_date: Date.new(2018,1,8),
-  end_date: Date.new(2018,12,21),
-  user: user2,
+  start_date: Date.new(2018,8,27),
+  end_date: Date.new(2019,7,12),
+  user: user1,
   color: "#5FCC9C" # $green
   )
 potions7.save!
-
-defense5 = TeachingSet.new(
-  subject: "Defense Against The Dark Arts",
-  year_group: "Year 5",
-  start_date: Date.new(2018,1,8),
-  end_date: Date.new(2018,12,21),
-  user: user2,
-  color: "#232855" # $dark-blue
-  )
-defense5.save!
-
-defense3 = TeachingSet.new(
-  subject: "Defense Against The Dark Arts",
-  year_group: "Year 3",
-  start_date: Date.new(2018,1,8),
-  end_date: Date.new(2018,12,21),
-  user: user2,
-  color: "#469AE0" # $blue
-  )
-defense3.save!
 
 
 ###########################################################
 
 puts "Seeding pupils..."
-
-# PUPILS - LE WAGON
-
-# saskia = Pupil.new(
-#   first_name: "Saskia",
-#   last_name: "Menke",
-#   photo: "le-wagon/saskia.jpeg"
-#   )
-# saskia.save!
-
-# amanda = Pupil.new(
-#   first_name: "Amanda",
-#   last_name: "Schjørmann",
-#   photo: "le-wagon/amanda.jpg"
-#   )
-# amanda.save!
-
-# charles = Pupil.new(
-#   first_name: "Charles",
-#   last_name: "Sumner",
-#   photo: "le-wagon/charles.jpeg"
-
-#   )
-# charles.save!
-
-# thiago = Pupil.new(
-#   first_name: "Thiago",
-#   last_name: "Oliva",
-#   photo: "le-wagon/thiago.jpeg"
-#   )
-# thiago.save!
-
-# nick = Pupil.new(
-#   first_name: "Nicolas",
-#   last_name: "Feer",
-#   photo: "le-wagon/nicolas.jpeg"
-#   )
-# nick.save!
-
 
 # PUPILS - HARRY POTTER
 
@@ -294,429 +236,191 @@ blaise = Pupil.new(
   )
 blaise.save!
 
+angelina = Pupil.new(
+  first_name: "Angelina",
+  last_name: "Johnson",
+  photo: "harry-potter/angelina.jpg"
+  )
+angelina.save!
+
+marcus = Pupil.new(
+  first_name: "Marcus",
+  last_name: "Flint",
+  photo: "harry-potter/marcus.jpg"
+  )
+marcus.save!
+
+ginny = Pupil.new(
+  first_name: "Ginny",
+  last_name: "Weasley",
+  photo: "harry-potter/ginny.jpg"
+  )
+ginny.save!
+
+fred = Pupil.new(
+  first_name: "Fred",
+  last_name: "Weasley",
+  photo: "harry-potter/fred.jpg"
+  )
+fred.save!
+
+george = Pupil.new(
+  first_name: "George",
+  last_name: "Weasley",
+  photo: "harry-potter/george.jpg"
+  )
+george.save!
+
+lee = Pupil.new(
+  first_name: "Lee",
+  last_name: "Jordan",
+  photo: "harry-potter/lee.jpg"
+  )
+lee.save!
+
+cho = Pupil.new(
+  first_name: "Cho",
+  last_name: "Chang",
+  photo: "harry-potter/cho.jpg"
+  )
+cho.save!
+
 
 ###########################################################
 
 puts "Seeding set-pupils..."
 
-# SET-PUPILS - LE WAGON (5)
+pupils = []
+Pupil.all.each { |pupil| pupils << pupil }
 
-# saskia_lewagon = SetPupil.new(
-#   teaching_set: lewagon,
-#   pupil: saskia
-#   )
-# saskia_lewagon.save!
+pupils.sample(12).each do |pupil|
+  SetPupil.create!(
+    teaching_set: defense3,
+    pupil: pupil
+    )
+end
 
-# amanda_lewagon = SetPupil.new(
-#   teaching_set: lewagon,
-#   pupil: amanda
-#   )
-# amanda_lewagon.save!
+pupils.sample(12).each do |pupil|
+  SetPupil.create!(
+    teaching_set: defense5,
+    pupil: pupil
+    )
+end
 
-# charles_lewagon = SetPupil.new(
-#   teaching_set: lewagon,
-#   pupil: charles
-#   )
-# charles_lewagon.save!
+pupils.sample(12).each do |pupil|
+  SetPupil.create!(
+    teaching_set: potions5,
+    pupil: pupil
+    )
+end
 
-# thiago_lewagon = SetPupil.new(
-#   teaching_set: lewagon,
-#   pupil: thiago
-#   )
-# thiago_lewagon.save!
-
-# nick_lewagon = SetPupil.new(
-#   teaching_set: lewagon,
-#   pupil: nick
-#   )
-# nick_lewagon.save!
-
-
-# SET-PUPILS - POTIONS 5 (14)
-
-harry_potions5 = SetPupil.new(
-  teaching_set: potions5,
-  pupil: harry
-  )
-harry_potions5.save!
-
-ron_potions5 = SetPupil.new(
-  teaching_set: potions5,
-  pupil: ron
-  )
-ron_potions5.save!
-
-hermione_potions5 = SetPupil.new(
-  teaching_set: potions5,
-  pupil: hermione
-  )
-hermione_potions5.save!
-
-draco_potions5 = SetPupil.new(
-  teaching_set: potions5,
-  pupil: draco
-  )
-draco_potions5.save!
-
-neville_potions5 = SetPupil.new(
-  teaching_set: potions5,
-  pupil: neville
-  )
-neville_potions5.save!
-
-seamus_potions5 = SetPupil.new(
-  teaching_set: potions5,
-  pupil: seamus
-  )
-seamus_potions5.save!
-
-luna_potions5 = SetPupil.new(
-  teaching_set: potions5,
-  pupil: luna
-  )
-luna_potions5.save!
-
-dean_potions5 = SetPupil.new(
-  teaching_set: potions5,
-  pupil: dean
-  )
-dean_potions5.save!
-
-susan_potions5 = SetPupil.new(
-  teaching_set: potions5,
-  pupil: susan
-  )
-susan_potions5.save!
-
-terry_potions5 = SetPupil.new(
-  teaching_set: potions5,
-  pupil: terry
-  )
-terry_potions5.save!
-
-lavendar_potions5 = SetPupil.new(
-  teaching_set: potions5,
-  pupil: lavendar
-  )
-lavendar_potions5.save!
-
-millicent_potions5 = SetPupil.new(
-  teaching_set: potions5,
-  pupil: millicent
-  )
-millicent_potions5.save!
-
-michael_potions5 = SetPupil.new(
-  teaching_set: potions5,
-  pupil: michael
-  )
-michael_potions5.save!
-
-vincent_potions5 = SetPupil.new(
-  teaching_set: potions5,
-  pupil: vincent
-  )
-vincent_potions5.save!
-
-
-# SET-PUPILS - POTIONS 7 ()
-
-harry_potions7 = SetPupil.new(
-  teaching_set: potions7,
-  pupil: harry
-  )
-harry_potions7.save!
-
-
-# SET-PUPILS - DEFENSE 5 (13)
-
-harry_defense5 = SetPupil.new(
-  teaching_set: defense5,
-  pupil: harry
-  )
-harry_defense5.save!
-
-ron_defense5 = SetPupil.new(
-  teaching_set: defense5,
-  pupil: ron
-  )
-ron_defense5.save!
-
-hermione_defense5 = SetPupil.new(
-  teaching_set: defense5,
-  pupil: hermione
-  )
-hermione_defense5.save!
-
-draco_defense5 = SetPupil.new(
-  teaching_set: defense5,
-  pupil: draco
-  )
-draco_defense5.save!
-
-neville_defense5 = SetPupil.new(
-  teaching_set: defense5,
-  pupil: neville
-  )
-neville_defense5.save!
-
-justin_defense5 = SetPupil.new(
-  teaching_set: defense5,
-  pupil: justin
-  )
-justin_defense5.save!
-
-anthony_defense5 = SetPupil.new(
-  teaching_set: defense5,
-  pupil: anthony
-  )
-anthony_defense5.save!
-
-gregory_defense5 = SetPupil.new(
-  teaching_set: defense5,
-  pupil: gregory
-  )
-gregory_defense5.save!
-
-cedric_defense5 = SetPupil.new(
-  teaching_set: defense5,
-  pupil: cedric
-  )
-cedric_defense5.save!
-
-pansy_defense5 = SetPupil.new(
-  teaching_set: defense5,
-  pupil: pansy
-  )
-pansy_defense5.save!
-
-padma_defense5 = SetPupil.new(
-  teaching_set: defense5,
-  pupil: padma
-  )
-padma_defense5.save!
-
-parvati_defense5 = SetPupil.new(
-  teaching_set: defense5,
-  pupil: parvati
-  )
-parvati_defense5.save!
-
-blaise_defense5 = SetPupil.new(
-  teaching_set: defense5,
-  pupil: blaise
-  )
-blaise_defense5.save!
-
-
-# SET-PUPILS - DEFENSE 3 ()
-
-harry_defense3 = SetPupil.new(
-  teaching_set: defense3,
-  pupil: harry
-  )
-harry_defense3.save!
+pupils.sample(12).each do |pupil|
+  SetPupil.create!(
+    teaching_set: potions7,
+    pupil: pupil
+    )
+end
 
 
 ###########################################################
+
 
 puts "Seeding report-cycles..."
 
-# REPORT-CYCLES - LE WAGON
+summer_start = Date.new(2018,8,27)
+summer_end = Date.new(2018,10,12)
+summer_weeks = ((summer_end - summer_start)/7).round
+fall_start = Date.new(2018,10,29)
+fall_end = Date.new(2018,12,21)
+fall_weeks = ((fall_end - fall_start)/7).round
+winter_start = Date.new(2019,1,7)
+winter_end = Date.new(2019,4,12)
+winter_weeks = ((winter_end - winter_start)/7).round
+spring_start = Date.new(2019,4,29)
+spring_end = Date.new(2019,7,12)
+spring_weeks = ((winter_end - winter_start)/7).round
 
-# lewagon_total = ReportCycle.create!(
-#   name: "Final Report",
-#   start_date: Date.new(2018,7,2),
-#   end_date: Date.new(2018,8,31),
-#   teaching_set: lewagon
+# potions7 = TeachingSet.new(
+#   subject: "Potions",
+#   year_group: "Year 7",
+#   start_date: Date.new(2018,8,27),
+#   end_Date: Date.new(2019,7,12),
+#   user: user1,
+#   color: "#5FCC9C" # $green
 #   )
-# lewagon_total_weeks = ((lewagon_total.end_date-lewagon_total.start_date)/7).round
+# potions7.save!
+ts_hash = {}
+base = "ts_"
+TeachingSet.all.each do |ts|
+  ts_hash[(base + ts.id.to_s + "summer")] = ReportCycle.create!(
+    name: "Summer Term",
+    start_date: summer_start,
+    end_date: summer_end,
+    teaching_set: ts
+    )
 
+  ts_hash[(base + ts.id.to_s + "fall")] = ReportCycle.create!(
+    name: "Fall Term",
+    start_date: fall_start,
+    end_date: fall_end,
+    teaching_set: ts
+    )
 
-# REPORT-CYCLES - POTIONS 5
+  ts_hash[(base + ts.id.to_s + "winter")] = ReportCycle.create!(
+    name: "Winter Term",
+    start_date: winter_start,
+    end_date: winter_end,
+    teaching_set: ts
+    )
 
-potions5_winter = ReportCycle.create!(
-  name: "Winter Term",
-  start_date: Date.new(2018,1,8),
-  end_date: Date.new(2018,3,19),
-  teaching_set: potions5
-  )
+  ts_hash[(base + ts.id.to_s + "spring")] = ReportCycle.create!(
+    name: "Spring Term",
+    start_date: spring_start,
+    end_date: spring_end,
+    teaching_set: ts
+    )
+end
 
-potions5_spring = ReportCycle.create!(
-  name: "Spring Term",
-  start_date: Date.new(2018,3,20),
-  end_date: Date.new(2018,6,20),
-  teaching_set: potions5
-  )
-
-potions5_summer = ReportCycle.create!(
-  name: "Summer Term",
-  start_date: Date.new(2018,6,21),
-  end_date: Date.new(2018,9,22),
-  teaching_set: potions5
-  )
-potions5_summer_weeks = ((potions5_summer.end_date-potions5_summer.start_date)/7).round
-
-potions5_fall = ReportCycle.create!(
-  name: "Fall Term",
-  start_date: Date.new(2018,9,23),
-  end_date: Date.new(2018,12,21),
-  teaching_set: potions5
-  )
-
-
-# REPORT-CYCLES - POTIONS 7
-
-potions7_winter = ReportCycle.create!(
-  name: "Winter Term",
-  start_date: Date.new(2018,1,8),
-  end_date: Date.new(2018,3,19),
-  teaching_set: potions7
-  )
-
-potions7_spring = ReportCycle.create!(
-  name: "Spring Term",
-  start_date: Date.new(2018,3,20),
-  end_date: Date.new(2018,6,20),
-  teaching_set: potions7
-  )
-
-potions7_summer = ReportCycle.create!(
-  name: "Summer Term",
-  start_date: Date.new(2018,6,21),
-  end_date: Date.new(2018,9,22),
-  teaching_set: potions7
-  )
-potions7_summer_weeks = ((potions7_summer.end_date-potions7_summer.start_date)/7).round
-
-potions7_fall = ReportCycle.create!(
-  name: "Fall Term",
-  start_date: Date.new(2018,9,23),
-  end_date: Date.new(2018,12,21),
-  teaching_set: potions7
-  )
-
-
-# REPORT-CYCLES - DEFENSE 5
-
-defense5_winter = ReportCycle.create!(
-  name: "Winter Term",
-  start_date: Date.new(2018,1,8),
-  end_date: Date.new(2018,3,19),
-  teaching_set: defense5
-  )
-
-defense5_spring = ReportCycle.create!(
-  name: "Spring Term",
-  start_date: Date.new(2018,3,20),
-  end_date: Date.new(2018,6,20),
-  teaching_set: defense5
-  )
-
-defense5_summer = ReportCycle.create!(
-  name: "Summer Term",
-  start_date: Date.new(2018,6,21),
-  end_date: Date.new(2018,9,22),
-  teaching_set: defense5
-  )
-defense5_summer_weeks = ((defense5_summer.end_date-defense5_summer.start_date)/7).round
-
-defense5_fall = ReportCycle.create!(
-  name: "Fall Term",
-  start_date: Date.new(2018,9,23),
-  end_date: Date.new(2018,12,21),
-  teaching_set: defense5
-  )
-
-# REPORT-CYCLES - DEFENSE 3
-
-defense3_winter = ReportCycle.create!(
-  name: "Winter Term",
-  start_date: Date.new(2018,1,8),
-  end_date: Date.new(2018,3,19),
-  teaching_set: defense3
-  )
-
-defense3_spring = ReportCycle.create!(
-  name: "Spring Term",
-  start_date: Date.new(2018,3,20),
-  end_date: Date.new(2018,6,20),
-  teaching_set: defense3
-  )
-
-defense3_summer = ReportCycle.create!(
-  name: "Summer Term",
-  start_date: Date.new(2018,6,21),
-  end_date: Date.new(2018,9,22),
-  teaching_set: defense3
-  )
-defense3_summer_weeks = ((defense3_summer.end_date-defense3_summer.start_date)/7).round
-
-defense3_fall = ReportCycle.create!(
-  name: "Fall Term",
-  start_date: Date.new(2018,9,23),
-  end_date: Date.new(2018,12,21),
-  teaching_set: defense3
-  )
 
 ###########################################################
 
+
 puts "Seeding lessons..."
 
-# LESSONS - LE WAGON
+# LESSONS - POTIONS 5
 
-# lewagon_total_weeks.times do |num|
-#   Lesson.create!(
-#     start_time: DateTime.new(2018,7,2,9,00) + num * 7,
-#     end_time: DateTime.new(2018,7,2,18,30) + num * 7,
-#     report_cycle: lewagon_total,
-#     teaching_set: lewagon
-#     )
-
-#   Lesson.create!(
-#     start_time: DateTime.new(2018,7,3,9,00) + num * 7,
-#     end_time: DateTime.new(2018,7,3,18,30) + num * 7,
-#     report_cycle: lewagon_total,
-#     teaching_set: lewagon
-#     )
-
-#   Lesson.create!(
-#     start_time: DateTime.new(2018,7,4,9,00) + num * 7,
-#     end_time: DateTime.new(2018,7,4,18,30) + num * 7,
-#     report_cycle: lewagon_total,
-#     teaching_set: lewagon
-#     )
-
-#   Lesson.create!(
-#     start_time: DateTime.new(2018,7,5,9,00) + num * 7,
-#     end_time: DateTime.new(2018,7,5,18,30) + num * 7,
-#     report_cycle: lewagon_total,
-#     teaching_set: lewagon
-#     )
-
-#   Lesson.create!(
-#     start_time: DateTime.new(2018,7,6,9,00) + num * 7,
-#     end_time: DateTime.new(2018,7,6,18,30) + num * 7,
-#     report_cycle: lewagon_total,
-#     teaching_set: lewagon
-#     )
-# end
-
-
-# LESSONS - POTIONS 5 (13 weeks)
-
-potions5_summer_weeks.times do |num|
+summer_weeks.times do |num|
+  # TUESDAY
   Lesson.create!(
-    start_time: DateTime.new(2018,6,26,11,00) + num * 7,
-    end_time: DateTime.new(2018,6,26,12,30) + num * 7,
-    report_cycle: potions5_summer,
+    start_time: DateTime.new(2018,8,28,11,00) + num * 7,
+    end_time: DateTime.new(2018,8,28,12,30) + num * 7,
+    report_cycle: ts_hash[base + potions5.id.to_s + "summer"],
     teaching_set: potions5
     )
 
+  # FRIDAY
   Lesson.create!(
-    start_time: DateTime.new(2018,6,29,17,00) + num * 7,
-    end_time: DateTime.new(2018,6,29,20,00) + num * 7,
-    report_cycle: potions5_summer,
+    start_time: DateTime.new(2018,8,31,17,00) + num * 7,
+    end_time: DateTime.new(2018,8,31,20,00) + num * 7,
+    report_cycle: ts_hash[base + potions5.id.to_s + "summer"],
+    teaching_set: potions5
+    )
+end
+
+fall_weeks.times do |num|
+  # TUESDAY
+  Lesson.create!(
+    start_time: DateTime.new(2018,10,30,11,00) + num * 7,
+    end_time: DateTime.new(2018,10,30,12,30) + num * 7,
+    report_cycle: ts_hash[base + potions5.id.to_s + "fall"],
+    teaching_set: potions5
+    )
+
+  # FRIDAY
+  Lesson.create!(
+    start_time: DateTime.new(2018,11,2,17,00) + num * 7,
+    end_time: DateTime.new(2018,11,2,20,00) + num * 7,
+    report_cycle: ts_hash[base + potions5.id.to_s + "fall"],
     teaching_set: potions5
     )
 end
@@ -724,25 +428,54 @@ end
 
 # LESSONS - POTIONS 7
 
-potions7_summer_weeks.times do |num|
+summer_weeks.times do |num|
+  #MONDAY
   Lesson.create!(
-    start_time: DateTime.new(2018,6,25,9,00) + num * 7,
-    end_time: DateTime.new(2018,6,25,10,30) + num * 7,
-    report_cycle: potions7_summer,
+    start_time: DateTime.new(2018,8,27,9,00) + num * 7,
+    end_time: DateTime.new(2018,8,27,10,30) + num * 7,
+    report_cycle: ts_hash[base + potions7.id.to_s + "summer"],
     teaching_set: potions7
     )
 
+  #THURSDAY
   Lesson.create!(
-    start_time: DateTime.new(2018,6,28,9,00) + num * 7,
-    end_time: DateTime.new(2018,6,28,10,30) + num * 7,
-    report_cycle: potions7_summer,
+    start_time: DateTime.new(2018,8,30,9,00) + num * 7,
+    end_time: DateTime.new(2018,8,30,10,30) + num * 7,
+    report_cycle: ts_hash[base + potions7.id.to_s + "summer"],
     teaching_set: potions7
     )
 
+  #FRIDAY
   Lesson.create!(
-    start_time: DateTime.new(2018,6,29,14,00) + num * 7,
-    end_time: DateTime.new(2018,6,29,15,30) + num * 7,
-    report_cycle: potions7_summer,
+    start_time: DateTime.new(2018,8,31,14,00) + num * 7,
+    end_time: DateTime.new(2018,8,31,15,30) + num * 7,
+    report_cycle: ts_hash[base + potions7.id.to_s + "summer"],
+    teaching_set: potions7
+    )
+end
+
+fall_weeks.times do |num|
+  #MONDAY
+  Lesson.create!(
+    start_time: DateTime.new(2018,10,29,9,00) + num * 7,
+    end_time: DateTime.new(2018,10,29,10,30) + num * 7,
+    report_cycle: ts_hash[base + potions7.id.to_s + "fall"],
+    teaching_set: potions7
+    )
+
+  #THURSDAY
+  Lesson.create!(
+    start_time: DateTime.new(2018,11,1,9,00) + num * 7,
+    end_time: DateTime.new(2018,11,1,10,30) + num * 7,
+    report_cycle: ts_hash[base + potions7.id.to_s + "fall"],
+    teaching_set: potions7
+    )
+
+  #FRIDAY
+  Lesson.create!(
+    start_time: DateTime.new(2018,11,2,14,00) + num * 7,
+    end_time: DateTime.new(2018,11,2,15,30) + num * 7,
+    report_cycle: ts_hash[base + potions7.id.to_s + "fall"],
     teaching_set: potions7
     )
 end
@@ -750,25 +483,54 @@ end
 
 # LESSONS - DEFENSE 5
 
-defense5_summer_weeks.times do |num|
+summer_weeks.times do |num|
+  #MONDAY
   Lesson.create!(
-    start_time: DateTime.new(2018,6,25,11,00) + num * 7,
-    end_time: DateTime.new(2018,6,25,12,30) + num * 7,
-    report_cycle: defense5_summer,
+    start_time: DateTime.new(2018,8,27,11,00) + num * 7,
+    end_time: DateTime.new(2018,8,27,12,30) + num * 7,
+    report_cycle: ts_hash[base + defense5.id.to_s + "summer"],
     teaching_set: defense5
     )
 
+  #TUESDAY
   Lesson.create!(
-    start_time: DateTime.new(2018,6,26,14,00) + num * 7,
-    end_time: DateTime.new(2018,6,26,15,30) + num * 7,
-    report_cycle: defense5_summer,
+    start_time: DateTime.new(2018,8,28,14,00) + num * 7,
+    end_time: DateTime.new(2018,8,28,15,30) + num * 7,
+    report_cycle: ts_hash[base + defense5.id.to_s + "summer"],
     teaching_set: defense5
     )
 
+  #THURSDAY
   Lesson.create!(
-    start_time: DateTime.new(2018,6,28,14,00) + num * 7,
-    end_time: DateTime.new(2018,6,28,15,30) + num * 7,
-    report_cycle: defense5_summer,
+    start_time: DateTime.new(2018,8,30,14,00) + num * 7,
+    end_time: DateTime.new(2018,8,30,15,30) + num * 7,
+    report_cycle: ts_hash[base + defense5.id.to_s + "summer"],
+    teaching_set: defense5
+    )
+end
+
+fall_weeks.times do |num|
+  #MONDAY
+  Lesson.create!(
+    start_time: DateTime.new(2018,10,29,11,00) + num * 7,
+    end_time: DateTime.new(2018,10,29,12,30) + num * 7,
+    report_cycle: ts_hash[base + defense5.id.to_s + "fall"],
+    teaching_set: defense5
+    )
+
+  #TUESDAY
+  Lesson.create!(
+    start_time: DateTime.new(2018,10,30,14,00) + num * 7,
+    end_time: DateTime.new(2018,10,30,15,30) + num * 7,
+    report_cycle: ts_hash[base + defense5.id.to_s + "fall"],
+    teaching_set: defense5
+    )
+
+  #THURSDAY
+  Lesson.create!(
+    start_time: DateTime.new(2018,11,1,14,00) + num * 7,
+    end_time: DateTime.new(2018,11,1,15,30) + num * 7,
+    report_cycle: ts_hash[base + defense5.id.to_s + "fall"],
     teaching_set: defense5
     )
 end
@@ -776,40 +538,102 @@ end
 
 # LESSONS - DEFENSE 3
 
-defense3_summer_weeks.times do |num|
+summer_weeks.times do |num|
+  # WEDNESDAY
   Lesson.create!(
-    start_time: DateTime.new(2018,6,27,11,00) + num * 7,
-    end_time: DateTime.new(2018,6,27,14,00) + num * 7,
-    report_cycle: defense3_summer,
+    start_time: DateTime.new(2018,8,29,11,00) + num * 7,
+    end_time: DateTime.new(2018,8,29,14,00) + num * 7,
+    report_cycle: ts_hash[base + defense3.id.to_s + "summer"],
     teaching_set: defense3
     )
 
+  # FRIDAY
   Lesson.create!(
-    start_time: DateTime.new(2018,6,29,11,00) + num * 7,
-    end_time: DateTime.new(2018,6,29,12,30) + num * 7,
-    report_cycle: defense3_summer,
+    start_time: DateTime.new(2018,8,31,11,00) + num * 7,
+    end_time: DateTime.new(2018,8,31,12,30) + num * 7,
+    report_cycle: ts_hash[base + defense3.id.to_s + "summer"],
     teaching_set: defense3
     )
 end
+
+fall_weeks.times do |num|
+  # WEDNESDAY
+  Lesson.create!(
+    start_time: DateTime.new(2018,10,31,11,00) + num * 7,
+    end_time: DateTime.new(2018,10,31,14,00) + num * 7,
+    report_cycle: ts_hash[base + defense3.id.to_s + "fall"],
+    teaching_set: defense3
+    )
+
+  # FRIDAY
+  Lesson.create!(
+    start_time: DateTime.new(2018,11,2,11,00) + num * 7,
+    end_time: DateTime.new(2018,11,2,12,30) + num * 7,
+    report_cycle: ts_hash[base + defense3.id.to_s + "fall"],
+    teaching_set: defense3
+    )
+end
+
 
 ############################################################################################
 
 puts "Seeding tasks..."
 
-# TASKS - YR5 POTIONS
+# TASKS - YR3 DEFENSE (6)
 
-task_titles = ["Mixing test", "Potion quiz", "Bezoar essay", "Felix Felicis", "Sleeping draught",
-  "Practical test", "Ingredients test", "Antidotes essay", "Potions test", "Love Potion quiz",
-  "Ingredients quiz", "Potion essay", "Antidotes quiz", "Stirring clockwise", "Potionmaking"]
+task_titles_defense3 = ["Riddikulus test", "Freezing Spell", "Boggarts essay",
+  "Nocturnal beasts", "Orbis Jinx quiz", "Werewolves essay"]
 
-task_titles.each do |title|
+task_titles_defense3.each do |title|
+  Task.create!(
+    teaching_set: defense3,
+    title: title,
+    max_mark: rand(10..100)
+  )
+end
+
+# TASKS - YR5 DEFENSE (7)
+
+task_titles_defense5 = ["Patronus Charm", "Counter-spells", "Defensive Charms",
+  "Dementor essay", "Diminuendo quiz", "Nonverbal magic", "Conflict avoidance"]
+
+task_titles_defense5.each do |title|
+  Task.create!(
+    teaching_set: defense5,
+    title: title,
+    max_mark: rand(10..100)
+  )
+end
+
+# TASKS - YR5 POTIONS (8)
+
+task_titles_potions5 = ["Mixing test", "Bezoar essay", "Sleeping draught", "Ingredients test",
+  "Potions test", "Antidotes quiz", "Stirring clockwise", "Potionmaking"]
+
+task_titles_potions5.each do |title|
   Task.create!(
     teaching_set: potions5,
     title: title,
     max_mark: rand(10..100)
   )
-  puts "Seeded #{title} successfully"
 end
+
+# TASKS - YR7 POTIONS (7)
+
+task_titles_potions7 = ["Felix Felicis", "Love Potion quiz", "Potion essay", "Ingredients quiz",
+  "Antidotes essay", "Practical test"]
+
+task_titles_potions7.each do |title|
+  Task.create!(
+    teaching_set: potions7,
+    title: title,
+    max_mark: rand(10..100)
+  )
+end
+
+
+############################################################################################
+
 
 puts "Seeding marks..."
 
@@ -819,6 +643,10 @@ Task.all.each do |task|
     mark.save!
   end
 end
+
+
+############################################################################################
+
 
 Lesson.all.each { |l| l.save! }
 ReportCycle.all.each { |rc| rc.save! }
