@@ -18,16 +18,7 @@ puts "Seeding users..."
 
 # USERS
 
-# user1 = User.new(
-#   email: "connie@gmail.com",
-#   password: "123456",
-#   first_name: "Constance",
-#   last_name: "Chapman",
-#   photo: "teachers/connie.jpeg"
-#   )
-# user1.save!
-
-user2 = User.new(
+user1 = User.new(
   email: "snape@gmail.com",
   password: "123456",
   first_name: "Severus",
@@ -35,7 +26,7 @@ user2 = User.new(
   photo: "teachers/snape.jpg"
 
   )
-user2.save!
+user1.save!
 
 
 ###########################################################
@@ -44,22 +35,32 @@ puts "Seeding teaching-sets..."
 
 # TEACHING-SETS
 
-# lewagon = TeachingSet.new(
-#   subject: "Le Wagon",
-#   year_group: "Batch 164",
-#   start_date: Date.new(2018,7,2),
-#   end_date: Date.new(2018,8,31),
-#   user: user1,
-#   color: "#5FCC9C" #$green
-#   )
-# lewagon.save!
+defense3 = TeachingSet.new(
+  subject: "Defense Against The Dark Arts",
+  year_group: "Year 3",
+  start_date: Date.new(2018,1,8),
+  end_date: Date.new(2018,12,21),
+  user: user1,
+  color: "#469AE0" # $blue
+  )
+defense3.save!
+
+defense5 = TeachingSet.new(
+  subject: "Defense Against The Dark Arts",
+  year_group: "Year 5",
+  start_date: Date.new(2018,1,8),
+  end_date: Date.new(2018,12,21),
+  user: user1,
+  color: "#232855" # $dark-blue
+  )
+defense5.save!
 
 potions5 = TeachingSet.new(
   subject: "Potions",
   year_group: "Year 5",
   start_date: Date.new(2018,1,8),
   end_date: Date.new(2018,12,21),
-  user: user2,
+  user: user1,
   color: "#215B63" # $dark-green
   )
 potions5.save!
@@ -69,74 +70,15 @@ potions7 = TeachingSet.new(
   year_group: "Year 7",
   start_date: Date.new(2018,1,8),
   end_date: Date.new(2018,12,21),
-  user: user2,
+  user: user1,
   color: "#5FCC9C" # $green
   )
 potions7.save!
-
-defense5 = TeachingSet.new(
-  subject: "Defense Against The Dark Arts",
-  year_group: "Year 5",
-  start_date: Date.new(2018,1,8),
-  end_date: Date.new(2018,12,21),
-  user: user2,
-  color: "#232855" # $dark-blue
-  )
-defense5.save!
-
-defense3 = TeachingSet.new(
-  subject: "Defense Against The Dark Arts",
-  year_group: "Year 3",
-  start_date: Date.new(2018,1,8),
-  end_date: Date.new(2018,12,21),
-  user: user2,
-  color: "#469AE0" # $blue
-  )
-defense3.save!
 
 
 ###########################################################
 
 puts "Seeding pupils..."
-
-# PUPILS - LE WAGON
-
-# saskia = Pupil.new(
-#   first_name: "Saskia",
-#   last_name: "Menke",
-#   photo: "le-wagon/saskia.jpeg"
-#   )
-# saskia.save!
-
-# amanda = Pupil.new(
-#   first_name: "Amanda",
-#   last_name: "Schjørmann",
-#   photo: "le-wagon/amanda.jpg"
-#   )
-# amanda.save!
-
-# charles = Pupil.new(
-#   first_name: "Charles",
-#   last_name: "Sumner",
-#   photo: "le-wagon/charles.jpeg"
-
-#   )
-# charles.save!
-
-# thiago = Pupil.new(
-#   first_name: "Thiago",
-#   last_name: "Oliva",
-#   photo: "le-wagon/thiago.jpeg"
-#   )
-# thiago.save!
-
-# nick = Pupil.new(
-#   first_name: "Nicolas",
-#   last_name: "Feer",
-#   photo: "le-wagon/nicolas.jpeg"
-#   )
-# nick.save!
-
 
 # PUPILS - HARRY POTTER
 
@@ -299,37 +241,95 @@ blaise.save!
 
 puts "Seeding set-pupils..."
 
-# SET-PUPILS - LE WAGON (5)
 
-# saskia_lewagon = SetPupil.new(
-#   teaching_set: lewagon,
-#   pupil: saskia
-#   )
-# saskia_lewagon.save!
+# SET-PUPILS - DEFENSE 3 ()
 
-# amanda_lewagon = SetPupil.new(
-#   teaching_set: lewagon,
-#   pupil: amanda
-#   )
-# amanda_lewagon.save!
+harry_defense3 = SetPupil.new(
+  teaching_set: defense3,
+  pupil: harry
+  )
+harry_defense3.save!
 
-# charles_lewagon = SetPupil.new(
-#   teaching_set: lewagon,
-#   pupil: charles
-#   )
-# charles_lewagon.save!
 
-# thiago_lewagon = SetPupil.new(
-#   teaching_set: lewagon,
-#   pupil: thiago
-#   )
-# thiago_lewagon.save!
+# SET-PUPILS - DEFENSE 5 (13)
 
-# nick_lewagon = SetPupil.new(
-#   teaching_set: lewagon,
-#   pupil: nick
-#   )
-# nick_lewagon.save!
+harry_defense5 = SetPupil.new(
+  teaching_set: defense5,
+  pupil: harry
+  )
+harry_defense5.save!
+
+ron_defense5 = SetPupil.new(
+  teaching_set: defense5,
+  pupil: ron
+  )
+ron_defense5.save!
+
+hermione_defense5 = SetPupil.new(
+  teaching_set: defense5,
+  pupil: hermione
+  )
+hermione_defense5.save!
+
+draco_defense5 = SetPupil.new(
+  teaching_set: defense5,
+  pupil: draco
+  )
+draco_defense5.save!
+
+neville_defense5 = SetPupil.new(
+  teaching_set: defense5,
+  pupil: neville
+  )
+neville_defense5.save!
+
+justin_defense5 = SetPupil.new(
+  teaching_set: defense5,
+  pupil: justin
+  )
+justin_defense5.save!
+
+anthony_defense5 = SetPupil.new(
+  teaching_set: defense5,
+  pupil: anthony
+  )
+anthony_defense5.save!
+
+gregory_defense5 = SetPupil.new(
+  teaching_set: defense5,
+  pupil: gregory
+  )
+gregory_defense5.save!
+
+cedric_defense5 = SetPupil.new(
+  teaching_set: defense5,
+  pupil: cedric
+  )
+cedric_defense5.save!
+
+pansy_defense5 = SetPupil.new(
+  teaching_set: defense5,
+  pupil: pansy
+  )
+pansy_defense5.save!
+
+padma_defense5 = SetPupil.new(
+  teaching_set: defense5,
+  pupil: padma
+  )
+padma_defense5.save!
+
+parvati_defense5 = SetPupil.new(
+  teaching_set: defense5,
+  pupil: parvati
+  )
+parvati_defense5.save!
+
+blaise_defense5 = SetPupil.new(
+  teaching_set: defense5,
+  pupil: blaise
+  )
+blaise_defense5.save!
 
 
 # SET-PUPILS - POTIONS 5 (14)
@@ -428,109 +428,11 @@ harry_potions7 = SetPupil.new(
 harry_potions7.save!
 
 
-# SET-PUPILS - DEFENSE 5 (13)
-
-harry_defense5 = SetPupil.new(
-  teaching_set: defense5,
-  pupil: harry
-  )
-harry_defense5.save!
-
-ron_defense5 = SetPupil.new(
-  teaching_set: defense5,
-  pupil: ron
-  )
-ron_defense5.save!
-
-hermione_defense5 = SetPupil.new(
-  teaching_set: defense5,
-  pupil: hermione
-  )
-hermione_defense5.save!
-
-draco_defense5 = SetPupil.new(
-  teaching_set: defense5,
-  pupil: draco
-  )
-draco_defense5.save!
-
-neville_defense5 = SetPupil.new(
-  teaching_set: defense5,
-  pupil: neville
-  )
-neville_defense5.save!
-
-justin_defense5 = SetPupil.new(
-  teaching_set: defense5,
-  pupil: justin
-  )
-justin_defense5.save!
-
-anthony_defense5 = SetPupil.new(
-  teaching_set: defense5,
-  pupil: anthony
-  )
-anthony_defense5.save!
-
-gregory_defense5 = SetPupil.new(
-  teaching_set: defense5,
-  pupil: gregory
-  )
-gregory_defense5.save!
-
-cedric_defense5 = SetPupil.new(
-  teaching_set: defense5,
-  pupil: cedric
-  )
-cedric_defense5.save!
-
-pansy_defense5 = SetPupil.new(
-  teaching_set: defense5,
-  pupil: pansy
-  )
-pansy_defense5.save!
-
-padma_defense5 = SetPupil.new(
-  teaching_set: defense5,
-  pupil: padma
-  )
-padma_defense5.save!
-
-parvati_defense5 = SetPupil.new(
-  teaching_set: defense5,
-  pupil: parvati
-  )
-parvati_defense5.save!
-
-blaise_defense5 = SetPupil.new(
-  teaching_set: defense5,
-  pupil: blaise
-  )
-blaise_defense5.save!
-
-
-# SET-PUPILS - DEFENSE 3 ()
-
-harry_defense3 = SetPupil.new(
-  teaching_set: defense3,
-  pupil: harry
-  )
-harry_defense3.save!
-
-
 ###########################################################
 
 puts "Seeding report-cycles..."
 
-# REPORT-CYCLES - LE WAGON
 
-# lewagon_total = ReportCycle.create!(
-#   name: "Final Report",
-#   start_date: Date.new(2018,7,2),
-#   end_date: Date.new(2018,8,31),
-#   teaching_set: lewagon
-#   )
-# lewagon_total_weeks = ((lewagon_total.end_date-lewagon_total.start_date)/7).round
 
 
 # REPORT-CYCLES - POTIONS 5
@@ -663,45 +565,6 @@ defense3_fall = ReportCycle.create!(
 
 puts "Seeding lessons..."
 
-# LESSONS - LE WAGON
-
-# lewagon_total_weeks.times do |num|
-#   Lesson.create!(
-#     start_time: DateTime.new(2018,7,2,9,00) + num * 7,
-#     end_time: DateTime.new(2018,7,2,18,30) + num * 7,
-#     report_cycle: lewagon_total,
-#     teaching_set: lewagon
-#     )
-
-#   Lesson.create!(
-#     start_time: DateTime.new(2018,7,3,9,00) + num * 7,
-#     end_time: DateTime.new(2018,7,3,18,30) + num * 7,
-#     report_cycle: lewagon_total,
-#     teaching_set: lewagon
-#     )
-
-#   Lesson.create!(
-#     start_time: DateTime.new(2018,7,4,9,00) + num * 7,
-#     end_time: DateTime.new(2018,7,4,18,30) + num * 7,
-#     report_cycle: lewagon_total,
-#     teaching_set: lewagon
-#     )
-
-#   Lesson.create!(
-#     start_time: DateTime.new(2018,7,5,9,00) + num * 7,
-#     end_time: DateTime.new(2018,7,5,18,30) + num * 7,
-#     report_cycle: lewagon_total,
-#     teaching_set: lewagon
-#     )
-
-#   Lesson.create!(
-#     start_time: DateTime.new(2018,7,6,9,00) + num * 7,
-#     end_time: DateTime.new(2018,7,6,18,30) + num * 7,
-#     report_cycle: lewagon_total,
-#     teaching_set: lewagon
-#     )
-# end
-
 
 # LESSONS - POTIONS 5 (13 weeks)
 
@@ -796,19 +659,30 @@ end
 
 puts "Seeding tasks..."
 
-# TASKS - YR5 POTIONS
+# TASKS - YR3 DEFENSE (6)
 
-task_titles = ["Mixing test", "Potion quiz", "Bezoar essay", "Felix Felicis", "Sleeping draught",
-  "Practical test", "Ingredients test", "Antidotes essay", "Potions test", "Love Potion quiz",
-  "Ingredients quiz", "Potion essay", "Antidotes quiz", "Stirring clockwise", "Potionmaking"]
+task_titles_defense3 = ["Riddikulus test", "Freezing Spell test", "Boggarts essay",
+  "Nocturnal beasts test", "Orbis Jinx quiz", "Werewolves essay"]
 
-task_titles.each do |title|
+task_titles_defense3.each do |title|
   Task.create!(
-    teaching_set: potions5,
+    teaching_set: defense3,
     title: title,
     max_mark: rand(10..100)
   )
-  puts "Seeded #{title} successfully"
+end
+
+# TASKS - YR5 DEFENSE (7)
+
+task_titles_defense5 = ["Patronus Charm test", "Counter-spells quiz", "Defensive Charms essay",
+  "Dementor essay", "Diminuendo quiz", "Nonverbal magic test", "Conflict avoidance essay"]
+
+task_titles_defense5.each do |title|
+  Task.create!(
+    teaching_set: defense5,
+    title: title,
+    max_mark: rand(10..100)
+  )
 end
 
 puts "Seeding marks..."
@@ -818,6 +692,32 @@ Task.all.each do |task|
     mark.raw_mark = rand(0..task.max_mark)
     mark.save!
   end
+end
+
+# TASKS - YR5 POTIONS (8)
+
+task_titles_potions5 = ["Mixing test", "Bezoar essay", "Sleeping draught", "Ingredients test",
+  "Potions test", "Antidotes quiz", "Stirring clockwise", "Potionmaking"]
+
+task_titles_potions5.each do |title|
+  Task.create!(
+    teaching_set: potions5,
+    title: title,
+    max_mark: rand(10..100)
+  )
+end
+
+# TASKS - YR7 POTIONS (7)
+
+task_titles_potions7 = ["Felix Felicis", "Love Potion quiz", "Potion essay", "Ingredients quiz",
+  "Antidotes essay", "Draught of Living Death", "Practical test"]
+
+task_titles_potions7.each do |title|
+  Task.create!(
+    teaching_set: potions7,
+    title: title,
+    max_mark: rand(10..100)
+  )
 end
 
 Lesson.all.each { |l| l.save! }
