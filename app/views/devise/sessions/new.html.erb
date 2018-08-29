@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-md-offset-4 col-md-4">
-        <h2 class="header-margin text-center">Welcome back!</h2>
+        <h1 class="header-margin text-center">Welcome back!</h1>
 
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="form-inputs">
@@ -17,11 +17,15 @@
         </div>
 
         <div class="form-actions">
-          <%= f.button :submit, "Log in", class: "btn-markbook home" %>
+          <%= f.button :submit, "Log in", class: "btn btn-public", id: "btn-login" %>
         </div>
         <% end %>
         <div class="text-center text-margin">
           <%= render "devise/shared/links" %>
+        </div>
+        <div class="text-center text-margin" id="demo-profile"">
+          <p>Is your school not signed up yet? Try our demo profile!</p>
+          <p>Email: snape@gmail.com <br> Password: 123456</p>
         </div>
       </div>
     </div>
