@@ -5,7 +5,7 @@
       <%= image_tag "homepage.png", height: "200px", alt: "homepage-logo" %>
       <h2>Report-writing made easy</h2>
     </div>
-    <%= link_to "Log In", teaching_sets_path, class: "btn btn-public" %>
+    <%= link_to "Log In", new_user_session_path, class: "btn btn-public" %>
   </div>
 
   <div id="report-show">
@@ -48,8 +48,8 @@
     <div class="container description description-vertical">
       <h3 class="text-center">Demo Version</h3>
       <p>Are you curious to experience our product but your school hasn't signed up yet?</p>
-      <span>Try our free <%= link_to "Harry Potter demo profile", teaching_sets_path %>!</span>
-      <p class="font-smaller">(Credentials at the bottom of the link)</p>
+      <span>Try our free <%= link_to "Harry Potter demo profile", new_user_session_path %>!</span>
+      <p class="font-smaller">(Login credentials at the bottom of the link)</p>
     </div>
   </div>
 

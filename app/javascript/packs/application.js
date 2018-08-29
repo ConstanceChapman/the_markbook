@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded",function(){
       center: 'title',
       right: 'agendaDay,agendaWeek,month',
     },
-    defaultView: 'agendaDay',
+    defaultView: 'agendaWeek',
     minTime: "09:00:00",
     maxTime: "20:00:00",
     weekends: false,
