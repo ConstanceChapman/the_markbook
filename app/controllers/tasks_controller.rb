@@ -33,7 +33,17 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     @task.update!(task_params)
-    redirect_to teaching_set_tasks_path(@task.teaching_set)
+    if @task.save
+      respond_to do |format|
+        # format.html { redirect_to teaching_set_tasks_path(@task.teaching_set) }
+        format.js # <-- will render `app/views/tasks/create.js.erb`
+      end
+    else
+      respond_to do |format|
+        format.html { render 'tasks/index' }
+        format.js
+      end
+    end
   end
 
   def destroy
