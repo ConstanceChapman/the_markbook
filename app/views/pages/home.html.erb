@@ -54,12 +54,10 @@
   </div>
 
   <div class="wrapper wrapper-blue">
-    <div class="footer-links">
-      <a href="#"><i class="fab fa-github"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-linkedin"></i></a>
+    <div class="footer-copyright">
+      <%= mail_to "contact@themarkbook.com" do %>
+        <p id="white-text">Get in touch: contact@themarkbook.com</p>
+      <% end %>
     </div>
     <div class="footer-copyright">
       This project was made with <i class="fa fa-heart"></i> at Le Wagon

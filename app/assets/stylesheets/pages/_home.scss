@@ -110,6 +110,13 @@
   }
 }
 
+#white-text {
+  color: $white !important;
+  &:hover {
+    text-decoration: none !important;
+    opacity: 0.8 !important;
+  }
+}
 
 
 
