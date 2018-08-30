@@ -7,12 +7,12 @@
 
 .bottom-border {
   border-bottom: 1px solid rgba(0,0,0,0.15);
+  cursor: pointer;
 }
 
 .top-border {
   border-top: 1px solid rgba(0,0,0,0.15);
 }
-
 .report-modal-content {
   background-color: $white;
   h3 {
