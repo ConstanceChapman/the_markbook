@@ -47,19 +47,17 @@
   <div class="wrapper wrapper-grey">
     <div class="container description description-vertical">
       <h3 class="text-center">Demo Version</h3>
-      <p>Are you curious to experience our product but your school hasn't signed up yet?</p>
-      <span>Try our free <%= link_to "Harry Potter demo profile", new_user_session_path %>!</span>
+      <p>Has your school not signed up yet?</p>
+      <span>Try our <%= link_to "Harry Potter demo profile", new_user_session_path %>!</span>
       <p class="font-smaller">(Login credentials at the bottom of the link)</p>
     </div>
   </div>
 
   <div class="wrapper wrapper-blue">
     <div class="footer-links">
-      <a href="#"><i class="fab fa-github"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <%= mail_to "contact@themarkbook.com" do %>
+        Get in touch: contact@themarkbook.com
+      <% end %>
     </div>
     <div class="footer-copyright">
       This project was made with <i class="fa fa-heart"></i> at Le Wagon
