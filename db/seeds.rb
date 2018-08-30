@@ -309,17 +309,70 @@ end
 
 pupils.sample(12).each do |pupil|
   SetPupil.create!(
-    teaching_set: potions5,
-    pupil: pupil
-    )
-end
-
-pupils.sample(12).each do |pupil|
-  SetPupil.create!(
     teaching_set: potions7,
     pupil: pupil
     )
 end
+
+SetPupil.create!(
+  teaching_set: potions5,
+  pupil: terry
+  )
+
+SetPupil.create!(
+  teaching_set: potions5,
+  pupil: lavendar
+  )
+
+SetPupil.create!(
+  teaching_set: potions5,
+  pupil: vincent
+  )
+
+SetPupil.create!(
+  teaching_set: potions5,
+  pupil: gregory
+  )
+
+SetPupil.create!(
+  teaching_set: potions5,
+  pupil: hermione
+  )
+
+SetPupil.create!(
+  teaching_set: potions5,
+  pupil: neville
+  )
+
+SetPupil.create!(
+  teaching_set: potions5,
+  pupil: luna
+  )
+
+SetPupil.create!(
+  teaching_set: potions5,
+  pupil: draco
+  )
+
+SetPupil.create!(
+  teaching_set: potions5,
+  pupil: harry
+  )
+
+SetPupil.create!(
+  teaching_set: potions5,
+  pupil: dean
+  )
+
+SetPupil.create!(
+  teaching_set: potions5,
+  pupil: ron
+  )
+
+SetPupil.create!(
+  teaching_set: potions5,
+  pupil: parvati
+  )
 
 
 ###########################################################
@@ -340,15 +393,7 @@ spring_start = Date.new(2019,4,29)
 spring_end = Date.new(2019,7,12)
 spring_weeks = ((winter_end - winter_start)/7).round
 
-# potions7 = TeachingSet.new(
-#   subject: "Potions",
-#   year_group: "Year 7",
-#   start_date: Date.new(2018,8,27),
-#   end_Date: Date.new(2019,7,12),
-#   user: user1,
-#   color: "#5FCC9C" # $green
-#   )
-# potions7.save!
+
 ts_hash = {}
 base = "ts_"
 TeachingSet.all.each do |ts|
