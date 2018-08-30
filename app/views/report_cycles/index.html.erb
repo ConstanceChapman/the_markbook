@@ -8,10 +8,12 @@
             <%= image_tag "#{set_pupil.pupil.photo}", class: "avatar" %>
           </div>
           <div class="report-cycles-container">
-            <% set_pupil.report_cycles.each do |report_cycle| %>
+            <% set_pupil.report_cycles[0...-1].each do |report_cycle| %>
               <%= render partial: "report_cycles/report-modal", locals: { report: report_cycle.reports.find_by(set_pupil: set_pupil) } %>
-              <a type="button" data-toggle="modal" data-target="<%= "#view-report-#{report_cycle.id}-#{set_pupil.id}" %>" class="report-modal-button"><p class="bottom-border"><%= report_cycle.name %></p></a>
+              <a type="button" data-toggle="modal" data-target="<%= "#view-report-#{report_cycle.id}-#{set_pupil.id}" %>" class=""><p class="bottom-border cursor"><%= report_cycle.name %></p></a>
             <% end %>
+            <%= render partial: "report_cycles/report-modal", locals: { report: set_pupil.report_cycles[-1].reports.find_by(set_pupil: set_pupil) } %>
+            <a type="button" data-toggle="modal" data-target="<%= "#view-report-#{set_pupil.report_cycles[-1].id}-#{set_pupil.id}" %>" class=""><p class="cursor"><%= set_pupil.report_cycles[-1].name %></p></a>
           </div>
         </div>
       </div>
