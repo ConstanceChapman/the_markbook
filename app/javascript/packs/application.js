@@ -57,3 +57,5 @@ document.addEventListener("DOMContentLoaded",function(event){
 })
 
 scrollRight();
+
+$(".alert" ).slideUp(3000);
