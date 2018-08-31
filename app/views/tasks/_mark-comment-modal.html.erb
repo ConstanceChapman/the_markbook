@@ -7,7 +7,9 @@
         </button>
       </div>
       <div class="modal-body">
-        <h5 class="text-center"><strong><%= "#{mark.set_pupil.pupil.first_name} #{mark.set_pupil.pupil.last_name}" %></strong><br><%= "#{mark.task.title}: #{mark.percentage}%" %></h5>
+        <div id="<%= "mark#{mark.id}-title" %>">
+          <h5 class="text-center"><strong><%= "#{mark.set_pupil.pupil.first_name} #{mark.set_pupil.pupil.last_name}" %></strong><br><%= "#{mark.task.title}: #{mark.percentage}%" %></h5>
+        </div>
         <%= simple_form_for mark do |f| %>
           <%= f.input :comment %>
           <%= f.button :submit, class: "btn-markbook" %>

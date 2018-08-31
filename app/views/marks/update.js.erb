@@ -1,6 +1,12 @@
-function refreshMark(innerHTML) {
-  const newMarkForm = document.getElementById("mark_" + <%= @mark.id %>);
-  newPlusForm.innerHTML = innerHTML;
+// function refreshMark(innerHTML) {
+//   const newMarkForm = document.getElementById("edit_mark_" + <%= @mark.id %>);
+//   newMarkForm.innerHTML = innerHTML;
+// }
+
+function refreshModal(innerHTML) {
+  const modalTitle = document.getElementById('<%= "mark#{@mark.id}-title" %>');
+  modalTitle.innerHTML = innerHTML;
 }
 
-refreshMark('<%= j render "tasks/mark_form", mark: @mark %>');
+// refreshMark('<%= j render "tasks/mark_form", mark: @mark %>');
+refreshModal('<h5 class="text-center"><strong><%= "#{@mark.set_pupil.pupil.first_name} #{@mark.set_pupil.pupil.last_name}" %></strong><br><%= "#{@mark.task.title}: #{@mark.percentage}%" %></h5>');
