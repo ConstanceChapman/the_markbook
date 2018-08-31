@@ -1,5 +1,5 @@
 function updateTaskColumn(newHTML){
-  taskColumn = document.getElementById('<%= "task#{@task.id}" %>');
+  taskColumn = document.getElementById('<%= "task-column-#{@task.id}" %>');
   taskColumn.innerHTML = newHTML
 }
 
